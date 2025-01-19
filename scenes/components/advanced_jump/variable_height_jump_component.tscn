@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv24phuoha88f"]
+
+[ext_resource type="Script" path="res://scenes/components/advanced_jump/variable_height_jump_component.gd" id="1_78qo7"]
+
+[node name="VariableHeightJumpComponent" type="Node" node_paths=PackedStringArray("jump_buffer_timer", "coyote_timer")]
+script = ExtResource("1_78qo7")
+jump_buffer_timer = NodePath("JumpBufferTimer")
+coyote_timer = NodePath("CoyoteTimer")
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
