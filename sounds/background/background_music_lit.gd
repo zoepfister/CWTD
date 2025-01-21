@@ -1,5 +1,10 @@
 extends Node
 
+# This script is used to control the background music for the lit up Tinamy
+# When play() is called, the background music will play for the duration of the duration_seconds variable in a loop
+# All different backing click-tracks will be played simultaneously, however, the volume of each track will be (un)muted 
+# based on the percentage of the duration_seconds that the respective click-track should be played for
+
 @export var duration_seconds: int = 5
 
 @export var percentage_slow_speed: float = .5;
@@ -18,54 +23,69 @@ func _init() -> void:
 		push_error("Background music percentages for lit up Tinamy do not equal 100.")
 
 func _ready() -> void:
-	click_faster_player.volume_db = -80;
-	click_fastest_player.volume_db = -80;
+	mute_player(click_faster_player)
+	mute_player(click_fastest_player)
+	
 #	For debug only
 	play();
 
+# Mute the audio stream (volume to -80 dB)
+func mute_player(player: AudioStreamPlayer):
+	player.volume_db = -80
+	
+# Unmute the audio stream (volume to -5 dB)
+func unmute_player(player: AudioStreamPlayer):
+	player.volume_db = -5
 
 func _on_timer_faster_timeout() -> void:
-	click_slow_player.volume_db = -80;
-	click_faster_player.volume_db = -5;
-	
+	mute_player(click_slow_player)
+	unmute_player(click_faster_player)
 	
 func _on_timer_fastest_timeout() -> void:
-	click_faster_player.volume_db = -80;
-	click_fastest_player.volume_db = -5;
+	mute_player(click_faster_player)
+	unmute_player(click_fastest_player)
 	
-func _on_timer_end_timeout() -> void:
+func stop_all_players():
 	background_audio_player.stop()
 	click_slow_player.stop()
 	click_faster_player.stop()
 	click_fastest_player.stop()
 
-func play() -> void:
-	var timer_faster: Timer = Timer.new();
-	timer_faster.one_shot = true  # Set to false for repeating timer
-	timer_faster.autostart = false
-	timer_faster.wait_time = duration_seconds * percentage_slow_speed
-	add_child(timer_faster)
-	var timer_fastest: Timer = Timer.new();
-	add_child(timer_fastest)
+func play_all_players():
 	background_audio_player.play()
 	click_slow_player.play()
 	click_faster_player.play()
 	click_fastest_player.play()
 	
-	var timer_end: Timer = Timer.new();
-	timer_end.one_shot = true  # Set to false for repeating timer
-	timer_end.autostart = false
-	timer_end.wait_time = duration_seconds;
+func _on_timer_end_timeout() -> void:
+	stop_all_players()
+
+# Creates a timer with one_shot set to true, and autostart set to false
+# @param wait_time: The time in seconds to wait before the timer times out
+# @param timeout_connector: The function to call when the timer times out
+# @return Timer: The timer object
+func create_timer(wait_time: float, timeout_connector: Callable) -> Timer:
+	var timer: Timer = Timer.new();
+	timer.one_shot = true  # Set to false for repeating timer
+	timer.autostart = false
+	timer.wait_time = wait_time
+	timer.connect("timeout", timeout_connector)
+	return timer;
+
+func play() -> void:
+	var timer_faster: Timer = create_timer(duration_seconds * percentage_slow_speed, _on_timer_faster_timeout)
+	add_child(timer_faster)
+	var timer_fastest: Timer = create_timer(duration_seconds * (percentage_slow_speed + percentage_fast_speed), _on_timer_fastest_timeout)
+	add_child(timer_fastest)
+	
+	var timer_end: Timer = create_timer(duration_seconds, _on_timer_end_timeout)
 	add_child(timer_end)
-	timer_end.connect("timeout", _on_timer_end_timeout);
+	
+	play_all_players()
+	
 	timer_end.start()
-	
-	timer_faster.connect("timeout", _on_timer_faster_timeout);
 	timer_faster.start()
-	timer_fastest.connect("timeout", _on_timer_fastest_timeout);
-	timer_fastest.start(duration_seconds * (percentage_slow_speed + percentage_fast_speed))
+	timer_fastest.start()
 	
-
-
 func set_duration(seconds: int):
 	duration_seconds = seconds;
