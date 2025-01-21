@@ -17,6 +17,9 @@ extends Node
 @onready var click_faster_player: AudioStreamPlayer = $lit_click_faster
 @onready var click_fastest_player: AudioStreamPlayer = $lit_click_fastest
 
+@export var original_background_track: AudioStreamPlayer
+
+@onready var explosion_sound_effect = $"../ExplosionSoundEffect"
 
 func _init() -> void:
 	if percentage_slow_speed + percentage_fast_speed + percentage_fastest_speed != 1.0:
@@ -59,6 +62,7 @@ func play_all_players():
 	
 func _on_timer_end_timeout() -> void:
 	stop_all_players()
+	explosion_sound_effect.play()
 
 # Creates a timer with one_shot set to true, and autostart set to false
 # @param wait_time: The time in seconds to wait before the timer times out

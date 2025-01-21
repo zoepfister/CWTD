@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf38vd1hqmojb"]
+
+[ext_resource type="PackedScene" uid="uid://de06c0xj0mb7h" path="res://sounds/background/background-music.tscn" id="1_gky5m"]
+[ext_resource type="PackedScene" uid="uid://x75ebiggmard" path="res://sounds/effects/ExplosionSoundEffect.tscn" id="2_8ihct"]
+[ext_resource type="PackedScene" uid="uid://6rkhu2psvcf7" path="res://sounds/background/background-music-lit.tscn" id="3_rjqvh"]
+
+[node name="SoundManager" type="Node"]
+
+[node name="Background-music" parent="." instance=ExtResource("1_gky5m")]
+
+[node name="ExplosionSoundEffect" parent="." instance=ExtResource("2_8ihct")]
+
+[node name="lit_music_node" parent="." instance=ExtResource("3_rjqvh")]

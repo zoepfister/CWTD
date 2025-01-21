@@ -8,7 +8,6 @@
 
 [node name="lit_music_node" type="Node"]
 script = ExtResource("2_kxxwf")
-duration_seconds = 10
 
 [node name="Background_Music_Lit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_guddj")
