@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://6rkhu2psvcf7"]
+
+[ext_resource type="AudioStream" uid="uid://drepd5tlm08n4" path="res://sounds/background/lit/background-lit-85bpm.wav" id="1_guddj"]
+[ext_resource type="AudioStream" uid="uid://dkfjn8nh0itp7" path="res://sounds/background/lit/background-lit-wood-click-01.wav" id="2_hti3j"]
+[ext_resource type="Script" path="res://sounds/background/background_music_lit.gd" id="2_kxxwf"]
+[ext_resource type="AudioStream" uid="uid://cpra00vnqg7qh" path="res://sounds/background/lit/background-lit-wood-click-02.wav" id="3_klhl2"]
+[ext_resource type="AudioStream" uid="uid://d21wp8b1s27mo" path="res://sounds/background/lit/background-lit-wood-click-03.wav" id="4_owpnv"]
+
+[node name="lit_music_node" type="Node"]
+script = ExtResource("2_kxxwf")
+duration_seconds = 10
+
+[node name="Background_Music_Lit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_guddj")
+volume_db = -5.0
+bus = &"Background-Music"
+
+[node name="lit_click_slow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hti3j")
+volume_db = -5.0
+bus = &"Effects"
+
+[node name="lit_click_faster" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_klhl2")
+volume_db = -5.0
+bus = &"Effects"
+
+[node name="lit_click_fastest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_owpnv")
+volume_db = -5.0
+bus = &"Effects"
