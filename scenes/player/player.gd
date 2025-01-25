@@ -14,7 +14,7 @@ var direction: float = 1.0
 @export var input_component: InputComponent
 @export var movement_component: MovementComponent
 @export var jump_component: VariableHeightJumpComponent
-@export var animation_component: AnimationComponent
+@export var sprite_animation: PlayerSprite
 
 @onready var explode_timer: Timer = $ExplodeTimer
 @onready var explosion_area: Area2D = $ExplosionArea
@@ -30,8 +30,9 @@ var state: States = States.IDLE
 
 func _ready() -> void:
 	camera.make_current()
-	animation_component.set_animation("idle")
+	sprite_animation.play_animation("idle")
 	explosion_radius = (explosion_shape.shape as CircleShape2D).radius
+	sprite_animation.explosion_finished.connect(Callable(self, "_on_explosion_animation_finished"))
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
@@ -55,7 +56,7 @@ func _handle_idle():
 
 func _handle_moving_state():
 	movement_component.handle_horizontal_movement(self, input_component.input_horizontal, movement_speed)
-	animation_component.handle_move_animation(input_component.input_horizontal, "move")
+	sprite_animation.handle_move_animation(input_component.input_horizontal)
 	jump_component.handle_jump(self, input_component.get_jump_input(), input_component.get_jump_released(), jump_velocity)
 	if input_component.input_horizontal == 0 and is_on_floor():
 		set_state(States.IDLE)
@@ -66,7 +67,7 @@ func _handle_lit_state():
 		velocity.x = 0
 	velocity.x = move_toward(velocity.x, direction * run_speed, run_velocity_change_rate)
 	jump_component.handle_jump(self, input_component.get_jump_input(), input_component.get_jump_released(), jump_velocity)
-	animation_component.handle_move_animation(direction, "run")
+	sprite_animation.handle_run_animation(direction)
 	
 func set_state(new_state: States) -> void:
 	var old_state: States = state
@@ -77,9 +78,10 @@ func set_state(new_state: States) -> void:
 		direction = input_component.input_horizontal
 		if direction == 0:
 			direction = sign(velocity.x) if velocity.x != 0 else 1
+		sprite_animation.start_lit_timer()
 		explode_timer.start()
 	elif state == States.IDLE:
-		animation_component.set_animation("idle")
+		sprite_animation.set_idle_animation()
 
 #######################################
 #              Signals                #
@@ -89,8 +91,7 @@ func _on_explode_timer_timeout() -> void:
 	set_state(States.DEAD)
 	velocity = Vector2(0.0,0.0)
 	gravity_component.disable_garvity()		# prevent camera to follow falling through holes
-	animation_component.set_animation("explode")
-	animation_component.sprite.animation_finished.connect(Callable(self, "_on_explosion_animation_finished"))
+	sprite_animation.handle_explode_animation()
 	exploded.emit(explosion_area, explosion_radius)
 			
 func _on_explosion_animation_finished() -> void:
@@ -101,4 +102,3 @@ func on_repsawn():
 	set_state(States.IDLE)
 	gravity_component.enable_garvity()
 	visible = true
-	

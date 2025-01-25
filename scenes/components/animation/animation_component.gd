@@ -14,7 +14,10 @@ func _handle_horizontal_flip(direction: float) -> void:
 	
 func handle_move_animation(move_direciton: float, animation_name: String) -> void :
 	_handle_horizontal_flip(move_direciton)
-	set_animation(animation_name)
+	play_animation(animation_name)
+
+func play_animation(animation_name:String) -> void:
+	sprite.play(animation_name)
 
 func set_animation(animation_name: String) -> void:
-	sprite.play(animation_name)
+	sprite.animation = animation_name
