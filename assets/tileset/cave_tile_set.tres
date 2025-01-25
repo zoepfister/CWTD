@@ -292,6 +292,7 @@ texture = ExtResource("1_arksq")
 18:18/0 = 0
 19:18/0 = 0
 23:18/0 = 0
+23:18/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 24:18/0 = 0
 26:18/0 = 0
 27:18/0 = 0
@@ -914,4 +915,7 @@ texture = ExtResource("1_arksq")
 
 [resource]
 physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 32
+physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 32
 sources/0 = SubResource("TileSetAtlasSource_rdy73")
