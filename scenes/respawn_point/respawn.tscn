@@ -1,0 +1,80 @@
+[gd_scene load_steps=17 format=3 uid="uid://d12fqlmvljen4"]
+
+[ext_resource type="Texture2D" uid="uid://1xctdvquo20h" path="res://assets/respawn/respawn_flatten1.png" id="1_eckjp"]
+[ext_resource type="Texture2D" uid="uid://brb6nge4ueepw" path="res://assets/respawn/respawn_flatten2.png" id="2_mfsmq"]
+[ext_resource type="Texture2D" uid="uid://cqie2m0pgyo0m" path="res://assets/respawn/respawn_flatten3.png" id="3_5qf5r"]
+[ext_resource type="Texture2D" uid="uid://cf0k502t3wbuu" path="res://assets/respawn/respawn_flatten4.png" id="4_1wry3"]
+[ext_resource type="Texture2D" uid="uid://dqodgn628aden" path="res://assets/respawn/respawn_flatten5.png" id="5_p4dju"]
+[ext_resource type="Texture2D" uid="uid://d08eskyr522cd" path="res://assets/respawn/respawn_flatten6.png" id="6_idpc1"]
+[ext_resource type="Texture2D" uid="uid://d1j4b5lrgupt4" path="res://assets/respawn/respawn_flatten7.png" id="7_gv2ya"]
+[ext_resource type="Texture2D" uid="uid://b5w3jhitg6ajy" path="res://assets/respawn/respawn_flatten8.png" id="8_7ab7t"]
+[ext_resource type="Texture2D" uid="uid://chj7yeehh0ppm" path="res://assets/respawn/respawn_flatten9.png" id="9_lqoaw"]
+[ext_resource type="Texture2D" uid="uid://xkb1jl6dcilp" path="res://assets/respawn/respawn_flatten10.png" id="10_ldger"]
+[ext_resource type="Texture2D" uid="uid://damt02voblx5o" path="res://assets/respawn/respawn_flatten11.png" id="11_0a7ha"]
+[ext_resource type="Texture2D" uid="uid://dgwelgpuoar8v" path="res://assets/respawn/respawn_flatten12.png" id="12_vabgw"]
+[ext_resource type="Texture2D" uid="uid://ca6rjdpcvqmo" path="res://assets/respawn/respawn_flatten13.png" id="13_jfy37"]
+[ext_resource type="Texture2D" uid="uid://bcoyf8r7udsry" path="res://assets/respawn/respawn_flatten14.png" id="14_sa4mn"]
+[ext_resource type="Script" path="res://scenes/respawn_point/respawn.gd" id="15_0bbfs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egmil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eckjp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eckjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mfsmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5qf5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1wry3")
+}, {
+"duration": 1.3,
+"texture": ExtResource("5_p4dju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_idpc1")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_gv2ya")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_7ab7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lqoaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ldger")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0a7ha")
+}, {
+"duration": 1.5,
+"texture": ExtResource("12_vabgw")
+}, {
+"duration": 1.5,
+"texture": ExtResource("13_jfy37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sa4mn")
+}],
+"loop": false,
+"name": &"respawn",
+"speed": 10.0
+}]
+
+[node name="Respawn" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_egmil")
+animation = &"respawn"
+script = ExtResource("15_0bbfs")

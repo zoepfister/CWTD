@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=4 uid="uid://cxhco4ey7vlti"]
+
+[ext_resource type="Script" path="res://scenes/level/level_scene.gd" id="1_puttg"]
+[ext_resource type="TileSet" uid="uid://88eq2quqv7in" path="res://assets/tileset/cave_tile_set.tres" id="2_0uppv"]
+[ext_resource type="PackedScene" uid="uid://cflggj0rcs1kh" path="res://scenes/goal/goal.tscn" id="2_p2mlw"]
+[ext_resource type="PackedScene" uid="uid://d12fqlmvljen4" path="res://scenes/respawn_point/respawn.tscn" id="3_dcn5j"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_puttg")
+
+[node name="IndestructibleLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_0uppv")
+
+[node name="DestructibleLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAgAAAAOAAsAAAABAAgAAAAOAAsAAAACAAgAAAAOAAsAAAADAAgAAAAOAAsAAAAEAAgAAAAOAAsAAAAFAAgAAAAOAAsAAAAGAAgAAAAOAAsAAAAHAAgAAAAOAAsAAAAIAAgAAAAOAAsAAAAJAAgAAAAOAAsAAAAKAAgAAAAOAAsAAAALAAgAAAAOAAsAAAAMAAgAAAAOAAsAAAANAAgAAAAOAAsAAAAOAAgAAAAOAAsAAAAPAAgAAAAOAAsAAAAQAAgAAAAOAAsAAAARAAgAAAAOAAsAAAASAAgAAAAOAAsAAAATAAgAAAAOAAsAAAAUAAgAAAAOAAsAAAAVAAgAAAAOAAsAAAAWAAgAAAAOAAsAAAAXAAgAAAAOAAsAAAAYAAgAAAAOAAsAAAAZAAgAAAAOAAsAAAAaAAgAAAAOAAsAAAAbAAgAAAAOAAsAAAAcAAgAAAAOAAsAAAAdAAgAAAAOAAsAAAAeAAgAAAAOAAsAAAAfAAgAAAAOAAsAAAAgAAgAAAAOAAsAAAAAAAcAAAAXABIAADAAAAYAAAAXABIAADAAAAUAAAAXABIAADAAAAQAAAAXABIAADAAAAMAAAAXABIAADAAAAIAAAAXABIAADAAAAEAAAAXABIAADAAAAAAAAAXABIAADAhAAgAAAAOAAsAAAAiAAgAAAAOAAsAAAAjAAgAAAAOAAsAAAAkAAgAAAAOAAsAAAAlAAgAAAAOAAsAAAAmAAgAAAAOAAsAAAAnAAgAAAAOAAsAAAAnAAcAAAAXABIAAAAnAAYAAAAXABIAAAAnAAUAAAAXABIAAAAnAAQAAAAXABIAAAAnAAMAAAAXABIAAAAnAAIAAAAXABIAAAAnAAEAAAAXABIAAAAnAAAAAAAXABIAAAA=")
+tile_set = ExtResource("2_0uppv")
+
+[node name="Goal" parent="." instance=ExtResource("2_p2mlw")]
+position = Vector2(511, 115)
+
+[node name="Respawn" parent="." instance=ExtResource("3_dcn5j")]
+position = Vector2(140, 112)
