@@ -1,17 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyng0fwuimvde"]
+[gd_scene load_steps=7 format=3 uid="uid://dyng0fwuimvde"]
 
 [ext_resource type="Script" path="res://scenes/fragments/fragment.gd" id="1_4f7g2"]
 [ext_resource type="Texture2D" uid="uid://d3iqblur0weaj" path="res://assets/fragments/fragment_01.png" id="2_5kvvm"]
 [ext_resource type="Texture2D" uid="uid://cqo2qsptyehr" path="res://assets/fragments/fragment_02.png" id="3_vjuwy"]
 [ext_resource type="Texture2D" uid="uid://cq1iyewmplmdk" path="res://assets/fragments/fragment_03.png" id="4_qduka"]
 [ext_resource type="Texture2D" uid="uid://by881uhtwaqb1" path="res://assets/fragments/fragment_04.png" id="5_8dh8t"]
-[ext_resource type="PackedScene" uid="uid://rcvad2ldy5o1" path="res://scenes/components/gravity/gravity_component.tscn" id="6_17vqw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tqy6o"]
 
-[node name="Fragments" type="Node2D" node_paths=PackedStringArray("gravity")]
+[node name="Fragments" type="Node2D"]
 script = ExtResource("1_4f7g2")
-gravity = NodePath("GravityComponent")
 
 [node name="Fragment" type="RigidBody2D" parent="."]
 
@@ -48,5 +46,3 @@ texture = ExtResource("5_8dh8t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fragment4"]
 shape = SubResource("CapsuleShape2D_tqy6o")
 disabled = true
-
-[node name="GravityComponent" parent="." instance=ExtResource("6_17vqw")]
