@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxlsh23u4q4rv"]
+[gd_scene load_steps=4 format=3 uid="uid://cxlsh23u4q4rv"]
 
 [ext_resource type="PackedScene" uid="uid://cr4137xbkxflx" path="res://scenes/player/player.tscn" id="1_1iurf"]
-[ext_resource type="PackedScene" uid="uid://d1mhl2s4ja273" path="res://scenes/fire/fire.tscn" id="2_w544r"]
 [ext_resource type="PackedScene" uid="uid://cxhco4ey7vlti" path="res://scenes/level/level_01/level_01_scene.tscn" id="3_24s08"]
 [ext_resource type="PackedScene" uid="uid://cswvdxek4jyvj" path="res://sounds/SoundManager.tscn" id="4_gkg4g"]
 
@@ -10,8 +9,6 @@
 [node name="World" type="Node2D" parent="."]
 
 [node name="Level" parent="World" instance=ExtResource("3_24s08")]
-
-[node name="Fire" parent="World" instance=ExtResource("2_w544r")]
 
 [node name="SoundManager" parent="." instance=ExtResource("4_gkg4g")]
 

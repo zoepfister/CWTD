@@ -38,6 +38,7 @@ func handle_explode_animation() -> void:
 	
 func _on_explosion_finished() -> void:
 	fuse_lit_animation = "lit_0%"
+	body.sprite.animation_finished.disconnect(on_explosion_finished)
 	explosion_finished.emit()
 	
 func play_animation(animation_name: String) -> void:

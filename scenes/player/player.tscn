@@ -12,7 +12,7 @@ radius = 4.0
 height = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tf44m"]
-radius = 13.5
+radius = 15.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera", "gravity_component", "input_component", "movement_component", "jump_component", "sprite_animation") groups=["player"]]
 collision_mask = 14
@@ -41,7 +41,6 @@ position = Vector2(1, -4)
 shape = SubResource("CapsuleShape2D_yrkk1")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 0.8

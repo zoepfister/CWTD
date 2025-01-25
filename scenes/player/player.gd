@@ -20,7 +20,7 @@ var direction: float = 1.0
 @onready var explosion_area: Area2D = $ExplosionArea
 @onready var explosion_shape: CollisionShape2D = $ExplosionArea/ExplosionCollisionShape
 @onready var fragment_scene: PackedScene = preload("res://scenes/fragments/fragment_scene.tscn")
-@onready var sound_manager = $"../SoundManager"
+@onready var sound_manager: SoundManager = $"../SoundManager"
 var explosion_radius: float
 
 signal exploded(explosion_area: Area2D, radius: float)
@@ -93,17 +93,33 @@ func set_state(new_state: States) -> void:
 		sound_manager.play_explosion_sound()
 		pass;
 	
+## Play explode animation and emit exploded signal once it finished.
+##
+## This funciton helps to time the respawn animaiton only after the explosion ended.
+## It is invoked in two cases:
+##   1. whenever the explode_timer.timeout signal is emitted
+##   2. whenever the player enters the death-zone
+##
+## Due to the second case, the guard check to stop the timer is required to prevent
+## executing the animation twice (when entering the death-zone and when the previously started
+## timer terminates).
+func explode() -> void:
+	if (!explode_timer.is_stopped()):
+		explode_timer.stop()
+		# if the explosion was triggered by the death-zone, stop lit music
+		sound_manager.stop_lit_music_background()
+	set_state(States.DEAD)
+	velocity = Vector2(0.0,0.0)
+	gravity_component.disable_gravity()		# prevent camera to follow falling through holes
+	sprite_animation.handle_explode_animation()
+	exploded.emit(explosion_area, explosion_radius)
 
 #######################################
 #              Signals                #
 #######################################
 
 func _on_explode_timer_timeout() -> void:
-	set_state(States.DEAD)
-	velocity = Vector2(0.0,0.0)
-	gravity_component.disable_gravity()		# prevent camera to follow falling through holes
-	sprite_animation.handle_explode_animation()
-	exploded.emit(explosion_area, explosion_radius)
+	explode()
 			
 func _on_explosion_animation_finished() -> void:
 	visible = false		# wait until explosion animation ended
