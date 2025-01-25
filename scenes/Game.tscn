@@ -16,3 +16,5 @@
 [node name="SoundManager" parent="." instance=ExtResource("4_gkg4g")]
 
 [node name="Player" parent="." instance=ExtResource("1_1iurf")]
+
+[connection signal="play_jump_sound" from="Player" to="SoundManager" method="_on_player_play_jump_sound"]

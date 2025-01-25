@@ -14,6 +14,7 @@ extends Node
 @onready var click_slow_player: AudioStreamPlayer = $lit_click_slow
 @onready var click_faster_player: AudioStreamPlayer = $lit_click_faster
 @onready var click_fastest_player: AudioStreamPlayer = $lit_click_fastest
+@onready var fuse_sound = $Fuse
 
 @export var original_background_track: AudioStreamPlayer
 
@@ -50,12 +51,14 @@ func stop_all_players():
 	click_slow_player.stop()
 	click_faster_player.stop()
 	click_fastest_player.stop()
+	fuse_sound.stop()
 
 func play_all_players():
 	background_audio_player.play()
 	click_slow_player.play()
 	click_faster_player.play()
 	click_fastest_player.play()
+	fuse_sound.play()
 
 # TODO: Move explosion to its own scene
 func _on_timer_end_timeout() -> void:

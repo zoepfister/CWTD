@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://6rkhu2psvcf7"]
+[gd_scene load_steps=7 format=3 uid="uid://6rkhu2psvcf7"]
 
 [ext_resource type="AudioStream" uid="uid://drepd5tlm08n4" path="res://sounds/background/lit/background-lit-85bpm.wav" id="1_guddj"]
 [ext_resource type="AudioStream" uid="uid://dkfjn8nh0itp7" path="res://sounds/background/lit/background-lit-wood-click-01.wav" id="2_hti3j"]
 [ext_resource type="Script" path="res://sounds/background/lit/background_music_lit.gd" id="2_kxxwf"]
 [ext_resource type="AudioStream" uid="uid://cpra00vnqg7qh" path="res://sounds/background/lit/background-lit-wood-click-02.wav" id="3_klhl2"]
 [ext_resource type="AudioStream" uid="uid://d21wp8b1s27mo" path="res://sounds/background/lit/background-lit-wood-click-03.wav" id="4_owpnv"]
+[ext_resource type="PackedScene" uid="uid://p0g7ctbiikts" path="res://sounds/effects/fuse/Fuse.tscn" id="6_cuh34"]
 
 [node name="lit_music_node" type="Node"]
 script = ExtResource("2_kxxwf")
@@ -28,3 +29,5 @@ bus = &"Effects"
 stream = ExtResource("4_owpnv")
 volume_db = -5.0
 bus = &"Effects"
+
+[node name="Fuse" parent="." instance=ExtResource("6_cuh34")]

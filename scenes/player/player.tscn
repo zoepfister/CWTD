@@ -60,4 +60,5 @@ collision_mask = 22
 shape = SubResource("CircleShape2D_tf44m")
 debug_color = Color(0.850346, 0.363739, 0.221727, 0.42)
 
+[connection signal="jump_signal" from="Components/VariableHeightJumpComponent" to="." method="_on_jump_sucess_signal"]
 [connection signal="timeout" from="ExplodeTimer" to="." method="_on_explode_timer_timeout"]

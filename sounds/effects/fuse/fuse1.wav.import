@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://m6cmedkgkkve"
-path="res://.godot/imported/fuse1.wav-447a62b832cca834ca97e40d6dad39ee.sample"
+path="res://.godot/imported/fuse1.wav-1a25178c993bb0cebce0dff55bf99a92.sample"
 
 [deps]
 
-source_file="res://sounds/effects/fuse1.wav"
-dest_files=["res://.godot/imported/fuse1.wav-447a62b832cca834ca97e40d6dad39ee.sample"]
+source_file="res://sounds/effects/fuse/fuse1.wav"
+dest_files=["res://.godot/imported/fuse1.wav-1a25178c993bb0cebce0dff55bf99a92.sample"]
 
 [params]
 

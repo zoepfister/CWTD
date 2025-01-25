@@ -5,6 +5,8 @@ extends Node
 @export var jump_buffer_timer: Timer
 @export var coyote_timer: Timer
 
+signal jump_signal
+
 var is_going_up: bool = false
 var is_jumping: bool = false
 var last_frame_on_floor: bool = false
@@ -54,3 +56,4 @@ func jump(body: CharacterBody2D, jump_velocity: float) -> void:
 	jump_buffer_timer.stop()
 	is_jumping = true
 	coyote_timer.stop()
+	jump_signal.emit()

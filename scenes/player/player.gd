@@ -25,6 +25,7 @@ var explosion_radius: float
 
 signal exploded(explosion_area: Area2D, radius: float)
 signal ready_to_respawn
+signal play_jump_sound
 
 enum States { IDLE, LIT, MOVING, DEAD}
 var state: States = States.IDLE
@@ -113,3 +114,7 @@ func on_repsawn():
 	set_state(States.IDLE)
 	gravity_component.enable_gravity()
 	visible = true
+
+
+func _on_jump_sucess_signal() -> void:
+	play_jump_sound.emit()

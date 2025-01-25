@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cswvdxek4jyvj"]
+[gd_scene load_steps=6 format=3 uid="uid://cswvdxek4jyvj"]
 
 [ext_resource type="PackedScene" uid="uid://de06c0xj0mb7h" path="res://sounds/background/background-music.tscn" id="1_gky5m"]
 [ext_resource type="Script" path="res://sounds/sound_manager.gd" id="1_nibv3"]
-[ext_resource type="PackedScene" uid="uid://cepjmhieeatcn" path="res://sounds/effects/ExplosionSoundEffect.tscn" id="2_8ihct"]
+[ext_resource type="PackedScene" uid="uid://cepjmhieeatcn" path="res://sounds/effects/explosions/ExplosionSoundEffect.tscn" id="2_8ihct"]
 [ext_resource type="PackedScene" uid="uid://6rkhu2psvcf7" path="res://sounds/background/lit/background-music-lit.tscn" id="3_rjqvh"]
+[ext_resource type="PackedScene" uid="uid://c2du2u1vn2eqg" path="res://sounds/effects/jump/Jump.tscn" id="5_otoc8"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_nibv3")
@@ -13,3 +14,5 @@ script = ExtResource("1_nibv3")
 [node name="Explosion_sound_effect" parent="." instance=ExtResource("2_8ihct")]
 
 [node name="Lit_background_music" parent="." instance=ExtResource("3_rjqvh")]
+
+[node name="Jump" parent="." instance=ExtResource("5_otoc8")]
