@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1mhl2s4ja273"]
+
+[ext_resource type="Script" path="res://scenes/fire/fire.gd" id="1_ij3ie"]
+[ext_resource type="Texture2D" uid="uid://kfvx0ntxs6td" path="res://assets/fire/fire1.png" id="2_1e1g4"]
+[ext_resource type="Texture2D" uid="uid://b1fu4sux0xe8u" path="res://assets/fire/fire2.png" id="3_4y1m1"]
+[ext_resource type="Texture2D" uid="uid://qqxoocykf2rm" path="res://assets/fire/fire3.png" id="4_75ed3"]
+[ext_resource type="Texture2D" uid="uid://civt728ma5vjh" path="res://assets/fire/fire4.png" id="5_m64t8"]
+[ext_resource type="Texture2D" uid="uid://cgro3lx3fnkk7" path="res://assets/fire/fire5.png" id="6_k4glp"]
+[ext_resource type="Texture2D" uid="uid://37pvwr1aoidj" path="res://assets/fire/fire6.png" id="7_s36h6"]
+[ext_resource type="Texture2D" uid="uid://14rn6iw8pfli" path="res://assets/fire/fire7.png" id="8_et3fi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nthlk"]
+radius = 18.0278
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltqix"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("2_1e1g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4y1m1")
+}, {
+"duration": 0.8,
+"texture": ExtResource("4_75ed3")
+}, {
+"duration": 0.8,
+"texture": ExtResource("5_m64t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k4glp")
+}, {
+"duration": 0.8,
+"texture": ExtResource("7_s36h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_et3fi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Fire" type="Area2D"]
+position = Vector2(-245, 56)
+collision_layer = 8
+script = ExtResource("1_ij3ie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(322, 56)
+shape = SubResource("CircleShape2D_nthlk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_ltqix")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
