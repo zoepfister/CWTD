@@ -20,6 +20,7 @@ var direction: float = 1.0
 @onready var explosion_area: Area2D = $ExplosionArea
 @onready var explosion_shape: CollisionShape2D = $ExplosionArea/ExplosionCollisionShape
 @onready var fragment_scene: PackedScene = preload("res://scenes/fragments/fragment_scene.tscn")
+@onready var sound_manager = $"../SoundManager"
 var explosion_radius: float
 
 signal exploded(explosion_area: Area2D, radius: float)
@@ -33,6 +34,7 @@ func _ready() -> void:
 	sprite_animation.play_animation("idle")
 	explosion_radius = (explosion_shape.shape as CircleShape2D).radius
 	sprite_animation.explosion_finished.connect(Callable(self, "_on_explosion_animation_finished"))
+	sound_manager.start_background_music()
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self, delta)
@@ -81,11 +83,13 @@ func set_state(new_state: States) -> void:
 			direction = sign(velocity.x) if velocity.x != 0 else 1
 		sprite_animation.start_lit_timer()
 		explode_timer.start()
+		sound_manager.start_lit_music_background(explode_timer.get_wait_time())
 		# start music
 	elif state == States.IDLE:
 		sprite_animation.set_idle_animation()
 	elif state == States.DEAD:
 		# explosion sound (check timing)
+		sound_manager.play_explosion_sound()
 		pass;
 	
 
@@ -102,6 +106,7 @@ func _on_explode_timer_timeout() -> void:
 			
 func _on_explosion_animation_finished() -> void:
 	visible = false		# wait until explosion animation ended
+	sound_manager.start_background_music()
 	ready_to_respawn.emit()
 			
 func on_repsawn():

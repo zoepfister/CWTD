@@ -5,8 +5,6 @@ extends Node
 # All different backing click-tracks will be played simultaneously, however, the volume of each track will be (un)muted 
 # based on the percentage of the duration_seconds that the respective click-track should be played for
 
-@export var duration_seconds: int = 5
-
 @export var percentage_slow_speed: float = .5;
 @export var percentage_fast_speed: float = .3;
 @export var percentage_fastest_speed: float = .2;
@@ -19,18 +17,17 @@ extends Node
 
 @export var original_background_track: AudioStreamPlayer
 
-@onready var explosion_sound_effect = $"../ExplosionSoundEffect"
-
 func _init() -> void:
 	if percentage_slow_speed + percentage_fast_speed + percentage_fastest_speed != 1.0:
 		push_error("Background music percentages for lit up Tinamy do not equal 100.")
 
-func _ready() -> void:
+func setup_audio_players():
+	unmute_player(click_slow_player)
 	mute_player(click_faster_player)
 	mute_player(click_fastest_player)
-	
-#	For debug only
-	play();
+
+func _ready() -> void:
+	setup_audio_players()
 
 # Mute the audio stream (volume to -80 dB)
 func mute_player(player: AudioStreamPlayer):
@@ -59,10 +56,11 @@ func play_all_players():
 	click_slow_player.play()
 	click_faster_player.play()
 	click_fastest_player.play()
-	
+
+# TODO: Move explosion to its own scene
 func _on_timer_end_timeout() -> void:
 	stop_all_players()
-	explosion_sound_effect.play()
+	#explosion_sound_effect.play()
 
 # Creates a timer with one_shot set to true, and autostart set to false
 # @param wait_time: The time in seconds to wait before the timer times out
@@ -76,7 +74,8 @@ func create_timer(wait_time: float, timeout_connector: Callable) -> Timer:
 	timer.connect("timeout", timeout_connector)
 	return timer;
 
-func play() -> void:
+func play(duration_seconds: float = 5) -> void:
+	setup_audio_players()
 	var timer_faster: Timer = create_timer(duration_seconds * percentage_slow_speed, _on_timer_faster_timeout)
 	add_child(timer_faster)
 	var timer_fastest: Timer = create_timer(duration_seconds * (percentage_slow_speed + percentage_fast_speed), _on_timer_fastest_timeout)
@@ -90,6 +89,3 @@ func play() -> void:
 	timer_end.start()
 	timer_faster.start()
 	timer_fastest.start()
-	
-func set_duration(seconds: int):
-	duration_seconds = seconds;

@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://drepd5tlm08n4" path="res://sounds/background/lit/background-lit-85bpm.wav" id="1_guddj"]
 [ext_resource type="AudioStream" uid="uid://dkfjn8nh0itp7" path="res://sounds/background/lit/background-lit-wood-click-01.wav" id="2_hti3j"]
-[ext_resource type="Script" path="res://sounds/background/background_music_lit.gd" id="2_kxxwf"]
+[ext_resource type="Script" path="res://sounds/background/lit/background_music_lit.gd" id="2_kxxwf"]
 [ext_resource type="AudioStream" uid="uid://cpra00vnqg7qh" path="res://sounds/background/lit/background-lit-wood-click-02.wav" id="3_klhl2"]
 [ext_resource type="AudioStream" uid="uid://d21wp8b1s27mo" path="res://sounds/background/lit/background-lit-wood-click-03.wav" id="4_owpnv"]
 
