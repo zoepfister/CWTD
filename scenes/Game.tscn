@@ -6,10 +6,10 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_1iurf")]
-
 [node name="World" type="Node2D" parent="."]
 
 [node name="Level" parent="World" instance=ExtResource("3_24s08")]
 
 [node name="Fire" parent="World" instance=ExtResource("2_w544r")]
+
+[node name="Player" parent="." instance=ExtResource("1_1iurf")]
