@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://p0g7ctbiikts"]
+
+[ext_resource type="Script" path="res://sounds/effects/fuse/fuse.gd" id="1_w1lvn"]
+[ext_resource type="AudioStream" uid="uid://bj1f31talcppr" path="res://sounds/effects/fuse/fuse2.wav" id="2_56mhh"]
+
+[node name="Fuse" type="Node"]
+script = ExtResource("1_w1lvn")
+
+[node name="Fuse2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_56mhh")
+bus = &"Effects"

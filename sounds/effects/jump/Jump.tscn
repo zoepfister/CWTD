@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2du2u1vn2eqg"]
+
+[ext_resource type="Script" path="res://sounds/effects/jump/jump.gd" id="1_cyrd3"]
+
+[node name="Jump" type="Node"]
+script = ExtResource("1_cyrd3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Effects"

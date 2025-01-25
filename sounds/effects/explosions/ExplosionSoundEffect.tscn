@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cepjmhieeatcn"]
+
+[ext_resource type="AudioStream" uid="uid://2ni4mi838ffe" path="res://sounds/effects/explosions/explosion1.wav" id="1_ja1lg"]
+[ext_resource type="Script" path="res://sounds/effects/explosions/random_explosion_selection.gd" id="2_s7tn3"]
+
+[node name="ExplosionSoundEffect" type="Node"]
+script = ExtResource("2_s7tn3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ja1lg")
+bus = &"Effects"
