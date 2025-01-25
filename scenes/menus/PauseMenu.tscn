@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cajkjr751ij63"]
+
+[ext_resource type="Script" path="res://scenes/menus/pause_menu.gd" id="1_hnotq"]
+[ext_resource type="PackedScene" uid="uid://bjri0wta252am" path="res://scenes/player/player_sprite.tscn" id="2_fxrau"]
+[ext_resource type="Theme" uid="uid://coxyygmaexqmr" path="res://scenes/menus/MainMenu.tres" id="3_uu26x"]
+[ext_resource type="PackedScene" uid="uid://cswvdxek4jyvj" path="res://sounds/SoundManager.tscn" id="4_dkog8"]
+[ext_resource type="PackedScene" uid="uid://cnpxgr2udl24f" path="res://scenes/menus/volume_controls.tscn" id="5_cbcjy"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hnotq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.757116, 0.565431, 0.390972, 1)
+
+[node name="PlayerSprite" parent="." instance=ExtResource("2_fxrau")]
+z_index = 1
+position = Vector2(264, 84)
+scale = Vector2(4, 4)
+
+[node name="PlayerFakeShadow" parent="." instance=ExtResource("2_fxrau")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(258, 82)
+scale = Vector2(4, 4)
+
+[node name="Resume" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 25.0
+offset_top = 84.0
+offset_right = 129.0
+offset_bottom = 109.0
+theme = ExtResource("3_uu26x")
+text = "Resume"
+
+[node name="Restart" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 26.0
+offset_top = 123.0
+offset_right = 130.0
+offset_bottom = 148.0
+theme = ExtResource("3_uu26x")
+text = "Restart"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 9.0
+offset_right = 155.0
+offset_bottom = 68.0
+mouse_force_pass_scroll_events = false
+theme = ExtResource("3_uu26x")
+theme_override_font_sizes/normal_font_size = 30
+text = "Cant Wait To Die!"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="SoundManager" parent="." instance=ExtResource("4_dkog8")]
+
+[node name="VolumeControls" parent="." instance=ExtResource("5_cbcjy")]
+offset_left = 22.0
+offset_top = 23.0
+offset_right = 62.0
+offset_bottom = 63.0
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

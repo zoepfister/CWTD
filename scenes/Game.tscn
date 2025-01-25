@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxlsh23u4q4rv"]
+[gd_scene load_steps=7 format=3 uid="uid://cxlsh23u4q4rv"]
 
 [ext_resource type="PackedScene" uid="uid://cr4137xbkxflx" path="res://scenes/player/player.tscn" id="1_1iurf"]
+[ext_resource type="PackedScene" uid="uid://cajkjr751ij63" path="res://scenes/menus/PauseMenu.tscn" id="1_q1lt5"]
 [ext_resource type="PackedScene" uid="uid://d1mhl2s4ja273" path="res://scenes/fire/fire.tscn" id="2_w544r"]
 [ext_resource type="PackedScene" uid="uid://cxhco4ey7vlti" path="res://scenes/level/level_01/level_01_scene.tscn" id="3_24s08"]
+[ext_resource type="Script" path="res://scenes/components/input/input_component.gd" id="3_tqx17"]
 [ext_resource type="PackedScene" uid="uid://cswvdxek4jyvj" path="res://sounds/SoundManager.tscn" id="4_gkg4g"]
 
 [node name="Game" type="Node2D"]
@@ -13,8 +15,24 @@
 
 [node name="Fire" parent="World" instance=ExtResource("2_w544r")]
 
+[node name="InputComponent" type="Node" parent="World"]
+script = ExtResource("3_tqx17")
+
 [node name="SoundManager" parent="." instance=ExtResource("4_gkg4g")]
 
 [node name="Player" parent="." instance=ExtResource("1_1iurf")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_q1lt5")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[connection signal="check_escape" from="World/InputComponent" to="CanvasLayer/PauseMenu" method="_on_pause_pressed"]
 [connection signal="play_jump_sound" from="Player" to="SoundManager" method="_on_player_play_jump_sound"]
