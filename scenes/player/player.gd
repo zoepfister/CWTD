@@ -68,7 +68,8 @@ func _handle_lit_state():
 	velocity.x = move_toward(velocity.x, direction * run_speed, run_velocity_change_rate)
 	jump_component.handle_jump(self, input_component.get_jump_input(), input_component.get_jump_released(), jump_velocity)
 	sprite_animation.handle_run_animation(direction)
-	
+
+
 func set_state(new_state: States) -> void:
 	var old_state: States = state
 	state = new_state
@@ -80,8 +81,13 @@ func set_state(new_state: States) -> void:
 			direction = sign(velocity.x) if velocity.x != 0 else 1
 		sprite_animation.start_lit_timer()
 		explode_timer.start()
+		# start music
 	elif state == States.IDLE:
 		sprite_animation.set_idle_animation()
+	elif state == States.DEAD:
+		# explosion sound (check timing)
+		pass;
+	
 
 #######################################
 #              Signals                #
@@ -90,7 +96,7 @@ func set_state(new_state: States) -> void:
 func _on_explode_timer_timeout() -> void:
 	set_state(States.DEAD)
 	velocity = Vector2(0.0,0.0)
-	gravity_component.disable_garvity()		# prevent camera to follow falling through holes
+	gravity_component.disable_gravity()		# prevent camera to follow falling through holes
 	sprite_animation.handle_explode_animation()
 	exploded.emit(explosion_area, explosion_radius)
 			
@@ -100,5 +106,5 @@ func _on_explosion_animation_finished() -> void:
 			
 func on_repsawn():
 	set_state(States.IDLE)
-	gravity_component.enable_garvity()
+	gravity_component.enable_gravity()
 	visible = true

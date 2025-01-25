@@ -15,8 +15,8 @@ func handle_gravity(body: CharacterBody2D, delta:float):
 func handle_gravity_physics_body(body: RigidBody2D, delta:float):
 	body.linear_velocity.y += gravity * delta
 
-func enable_garvity() -> void:
+func enable_gravity() -> void:
 	is_gravity_enabled = true
 	
-func disable_garvity() -> void:
+func disable_gravity() -> void:
 	is_gravity_enabled = false
