@@ -41,7 +41,6 @@ position = Vector2(1, -4)
 shape = SubResource("CapsuleShape2D_yrkk1")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 0.8

@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4574jg6jqylw"]
+
+[ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_lwe60"]
+[ext_resource type="PackedScene" uid="uid://bjri0wta252am" path="res://scenes/player/player_sprite.tscn" id="2_v4j13"]
+[ext_resource type="Theme" uid="uid://coxyygmaexqmr" path="res://scenes/menus/MainMenu.tres" id="3_rj6jc"]
+[ext_resource type="PackedScene" uid="uid://cswvdxek4jyvj" path="res://sounds/SoundManager.tscn" id="4_p8uis"]
+[ext_resource type="PackedScene" uid="uid://cnpxgr2udl24f" path="res://scenes/menus/volume_controls.tscn" id="5_nk4d7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwe60")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.757116, 0.565431, 0.390972, 1)
+
+[node name="PlayerSprite" parent="." instance=ExtResource("2_v4j13")]
+z_index = 1
+position = Vector2(264, 84)
+scale = Vector2(4, 4)
+
+[node name="PlayerFakeShadow" parent="." instance=ExtResource("2_v4j13")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(258, 82)
+scale = Vector2(4, 4)
+
+[node name="Start" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 25.0
+offset_top = 88.0
+offset_right = 129.0
+offset_bottom = 113.0
+theme = ExtResource("3_rj6jc")
+text = "Start"
+
+[node name="Exit" type="Button" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 25.0
+offset_top = 122.0
+offset_right = 129.0
+offset_bottom = 147.0
+theme = ExtResource("3_rj6jc")
+text = "Exit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 9.0
+offset_right = 155.0
+offset_bottom = 68.0
+mouse_force_pass_scroll_events = false
+theme = ExtResource("3_rj6jc")
+theme_override_font_sizes/normal_font_size = 30
+text = "Cant Wait To Die!"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="SoundManager" parent="." instance=ExtResource("4_p8uis")]
+
+[node name="VolumeControls" parent="." instance=ExtResource("5_nk4d7")]
+offset_left = 22.0
+offset_top = 23.0
+offset_right = 62.0
+offset_bottom = 63.0
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
