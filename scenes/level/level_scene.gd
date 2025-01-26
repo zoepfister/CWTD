@@ -1,7 +1,7 @@
 class_name Level
 extends Node2D
 
-@onready var fragment_scene: PackedScene = preload("res://scenes/fragments/fragment_scene.tscn")
+@onready var fragments_particle_scene: PackedScene = preload("res://scenes/fragments/fragments_particle.tscn")
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var destructible_layer: TileMapLayer = $DestructibleLayer
 @onready var goal: Goal = $Goal
@@ -49,9 +49,9 @@ func _remove_tiles_in_radius(explosion_center: Vector2, radius: float) -> void:
 			destructible_layer.erase_cell(Vector2i(x, y))
 			
 func _spawn_fragments(spawn_position: Vector2):
-	var fragment: Fragment = fragment_scene.instantiate()
-	fragment.global_position = spawn_position
-	get_tree().root.add_child(fragment)
+	var fragments: FragmentsParticle = fragments_particle_scene.instantiate()
+	fragments.global_position = spawn_position
+	get_tree().root.add_child(fragments)
 	
 func _respawn_player() -> void:
 	player.global_position = player_initial_position
