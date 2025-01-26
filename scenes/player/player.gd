@@ -111,7 +111,7 @@ func explode() -> void:
 	set_state(States.DEAD)
 	velocity = Vector2(0.0,0.0)
 	gravity_component.disable_gravity()		# prevent camera to follow falling through holes
-	sprite_animation.handle_explode_animation()
+	sprite_animation.handle_explode_animation(global_position)
 	exploded.emit(explosion_area, explosion_radius)
 
 #######################################

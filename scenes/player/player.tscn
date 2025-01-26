@@ -17,6 +17,9 @@ radius = 15.0
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera", "gravity_component", "input_component", "movement_component", "jump_component", "sprite_animation") groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_k081i")
+movement_speed = null
+run_speed = null
+jump_velocity = null
 camera = NodePath("PlayerCamera")
 gravity_component = NodePath("Components/GravityComponent")
 input_component = NodePath("Components/InputComponent")

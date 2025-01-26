@@ -7,6 +7,8 @@ extends Node2D
 @export var legs: AnimationComponent
 @export var lit_timer: Timer
 
+@onready var shockwave_scene: PackedScene = preload("res://scenes/explosion/explosion_shockwave.tscn")
+
 var on_explosion_finished: Callable = Callable(self, "_on_explosion_finished")
 var fuse_lit_animation = "lit_0%"
 
@@ -30,10 +32,14 @@ func handle_run_animation(direction: float) -> void:
 func start_lit_timer() -> void:
 	lit_timer.start()
 	
-func handle_explode_animation() -> void:
+func handle_explode_animation(explosion_position: Vector2) -> void:
 	fuse.set_animation("explode")
 	legs.set_animation("explode")
 	body.play_animation("explode")
+	var shockwave: Shockwave = shockwave_scene.instantiate()
+	add_child(shockwave)
+	shockwave.global_position = explosion_position
+	shockwave.play_shockwave()
 	body.sprite.animation_finished.connect(on_explosion_finished)
 	
 func _on_explosion_finished() -> void:
