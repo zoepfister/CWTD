@@ -44,4 +44,4 @@ In the new script you can then override level base methods and/or add functional
 
 For instance, we can create a level that is constantly spinning
 
-<video controls src="videos/spinning - Made with Clipchamp.mp4" title="Title"></video>
+![spinning_level](images/spinning.gif)
