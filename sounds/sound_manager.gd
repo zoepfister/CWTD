@@ -1,4 +1,3 @@
-class_name SoundManager
 extends Node
 
 @onready var background_music: AudioStreamPlayer = $Background_music
@@ -30,5 +29,5 @@ func stop_lit_music_background():
 func jump():
 	jump_effect.play()
 
-func _on_player_play_jump_sound() -> void:
+func play_jump_sound() -> void:
 	jump()

@@ -8,16 +8,13 @@ extends Node2D
 @onready var respawn_point: Respawn = $Respawn
 
 var player_initial_position: Vector2
-var player_respawn: Callable = Callable(self, "_respawn_player")
-var player_exploded: Callable = Callable(self, "_handle_explosion")
-var respawn_finished: Callable = Callable(self, "_on_respawn_finished")
 
 func _ready() -> void:
 	player_initial_position = respawn_point.global_position + Vector2(15, 0)
 	player.global_position = player_initial_position
-	player.exploded.connect(player_exploded)
-	player.ready_to_respawn.connect(player_respawn)
-	respawn_point.respawn_animation_finished.connect(respawn_finished)
+	player.exploded.connect(_handle_explosion)
+	player.ready_to_respawn.connect(_respawn_player)
+	respawn_point.respawn_animation_finished.connect(_on_respawn_finished)
 
 func _handle_explosion(explosion_area: Area2D, radius: float) -> void:
 	_destroy_goal_on_explosion(explosion_area)

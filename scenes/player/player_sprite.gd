@@ -9,7 +9,6 @@ extends Node2D
 
 @onready var shockwave_scene: PackedScene = preload("res://scenes/explosion/explosion_shockwave.tscn")
 
-var on_explosion_finished: Callable = Callable(self, "_on_explosion_finished")
 var fuse_lit_animation = "lit_0%"
 
 signal explosion_finished
@@ -40,11 +39,11 @@ func handle_explode_animation(explosion_position: Vector2) -> void:
 	add_child(shockwave)
 	shockwave.global_position = explosion_position
 	shockwave.play_shockwave()
-	body.sprite.animation_finished.connect(on_explosion_finished)
+	body.sprite.animation_finished.connect(_on_explosion_finished)
 	
 func _on_explosion_finished() -> void:
 	fuse_lit_animation = "lit_0%"
-	body.sprite.animation_finished.disconnect(on_explosion_finished)
+	body.sprite.animation_finished.disconnect(_on_explosion_finished)
 	explosion_finished.emit()
 	
 func play_animation(animation_name: String) -> void:
