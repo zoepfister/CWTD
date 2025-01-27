@@ -2,7 +2,7 @@
 
 ![create_inherited_scene](images/{1F41FEA8-C74F-448F-8110-1DDF3419BFCA}.png)
 
-## Save scene into a separate folder under `scene/levels`
+## Save scene into a separate folder under `scenes/levels`
 
 ![save_scene](images/{96305BAB-8619-4173-AE50-6443E4A4D406}.png)
 
