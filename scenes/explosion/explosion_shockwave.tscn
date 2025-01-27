@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://b36wywsoye8y4"]
+
+[ext_resource type="Script" path="res://scenes/explosion/explosion_shockwave.gd" id="1_71xqm"]
+[ext_resource type="Shader" path="res://scenes/explosion/shockwave.gdshader" id="2_0cgtc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skw7f"]
+shader = ExtResource("2_0cgtc")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.015
+shader_parameter/radius = 0.0
+shader_parameter/thickness = 0.001
+
+[sub_resource type="Animation" id="Animation_sbu7o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_amkw0"]
+resource_name = "shockwave"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 2.92817),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_263mx"]
+_data = {
+"RESET": SubResource("Animation_sbu7o"),
+"shockwave": SubResource("Animation_amkw0")
+}
+
+[node name="ExplosionShockwave" type="Node2D"]
+script = ExtResource("1_71xqm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_skw7f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_263mx")
+}
+
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
