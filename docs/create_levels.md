@@ -30,6 +30,8 @@ This is how the inherited scene will look initially:
 
 And here is an example of a concrete level
 
+![simple_level](images/simple_level.png)
+
 ## Extend level base script
 
 With the steps above you'll manage to create a level with the exact same funcitonalities as the *level_base.tscn* scene.
@@ -39,5 +41,3 @@ If tailored behaviors are needed, you can
 2. Attach a new script that extends the class **Level**
 
 In the new script you can then override level base methods and/or add functionalities specific to the level you want to create.
-
-![simple_level](images/simple_level.png)
