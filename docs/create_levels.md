@@ -41,3 +41,7 @@ If tailored behaviors are needed, you can
 2. Attach a new script that extends the class **Level**
 
 In the new script you can then override level base methods and/or add functionalities specific to the level you want to create.
+
+For instance, we can create a level that is constantly spinning
+
+<video controls src="videos/spinning - Made with Clipchamp.mp4" title="Title"></video>
