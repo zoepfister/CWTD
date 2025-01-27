@@ -14,6 +14,10 @@ config/name="CWTD"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundManager="*res://sounds/SoundManager.tscn"
+
 [display]
 
 window/size/viewport_width=320
@@ -49,12 +53,14 @@ move_left={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="ground"
-2d_physics/layer_3="wall"
+2d_physics/layer_2="ground_destructible"
+2d_physics/layer_3="wall_destructible"
 2d_physics/layer_4="fire"
 2d_physics/layer_5="goal"
 2d_physics/layer_6="explosion"
 2d_physics/layer_7="death_zone"
+2d_physics/layer_8="ground_indestructible"
+2d_physics/layer_9="wall_indestructible"
 
 [rendering]
 
