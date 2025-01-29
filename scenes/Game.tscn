@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://brarpcj8bakoi"]
+[gd_scene load_steps=5 format=3 uid="uid://brarpcj8bakoi"]
 
 [ext_resource type="PackedScene" uid="uid://cr4137xbkxflx" path="res://scenes/player/player.tscn" id="1_1iurf"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_4hqui"]
+[ext_resource type="PackedScene" uid="uid://cajkjr751ij63" path="res://scenes/menus/PauseMenu.tscn" id="1_q1lt5"]
 [ext_resource type="PackedScene" uid="uid://5b1sj6a0mbf" path="res://scenes/levels/level_00/level_00.tscn" id="2_5e8bh"]
 
 [node name="Game" type="Node2D"]
@@ -13,3 +14,10 @@ script = ExtResource("1_4hqui")
 [node name="Player" parent="." instance=ExtResource("1_1iurf")]
 
 [node name="Level" parent="." instance=ExtResource("2_5e8bh")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_q1lt5")]
+visible = false
+offset_right = -1152.0
+offset_bottom = -648.0
