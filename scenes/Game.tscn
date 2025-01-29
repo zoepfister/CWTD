@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cr4137xbkxflx" path="res://scenes/player/player.tscn" id="1_1iurf"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_4hqui"]
 [ext_resource type="PackedScene" uid="uid://cajkjr751ij63" path="res://scenes/menus/PauseMenu.tscn" id="1_q1lt5"]
-[ext_resource type="PackedScene" uid="uid://5b1sj6a0mbf" path="res://scenes/levels/level_00/level_00.tscn" id="2_5e8bh"]
+[ext_resource type="PackedScene" uid="uid://cmitcfirvhwqf" path="res://scenes/levels/level_02/level_02.tscn" id="4_pma3e"]
 
 [node name="Game" type="Node2D"]
 scale = Vector2(3, 3)
@@ -13,7 +13,7 @@ script = ExtResource("1_4hqui")
 
 [node name="Player" parent="." instance=ExtResource("1_1iurf")]
 
-[node name="Level" parent="." instance=ExtResource("2_5e8bh")]
+[node name="Level2" parent="." instance=ExtResource("4_pma3e")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
