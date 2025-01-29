@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 @export_subgroup("Settings")
-@export var movement_speed: float = 100.0
-@export var run_speed: float = 250.0
-@export var jump_velocity: float = -350.0
-var run_velocity_change_rate: float = 5.0 
+@export var movement_speed: float = 300.0
+@export var run_speed: float = 750.0
+@export var jump_velocity: float = -350.0 * 3
+var run_velocity_change_rate: float = 15.0 
 var direction: float = 1.0
 
 @export_subgroup("Nodes")

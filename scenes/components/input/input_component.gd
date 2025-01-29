@@ -17,7 +17,7 @@ func get_jump_released() -> bool:
 	return Input.is_action_just_released("jump")
 
 func get_escape_input() -> bool:
-	var escape_pressed = Input.is_action_just_pressed("escape")
+	var escape_pressed = Input.is_action_just_pressed("ui_cancel")
 	if escape_pressed:
 		check_escape.emit()
 	return escape_pressed
