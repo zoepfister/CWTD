@@ -423,7 +423,7 @@ animation = &"idle"
 
 [node name="Fuse" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4ky4b")
-animation = &"lit_0%"
+animation = &"idle"
 
 [node name="BodyAnimation" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("79_s3vd2")]
 sprite = NodePath("../Body")
