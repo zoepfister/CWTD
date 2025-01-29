@@ -56,7 +56,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="ExplosionArea" type="Area2D" parent="."]
-scale = Vector2(1.6053, 1.50828)
+scale = Vector2(1.985, 1.865)
 collision_layer = 32
 collision_mask = 22
 
