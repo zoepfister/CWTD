@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CWTD"
+run/main_scene="res://scenes/Game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,6 +30,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 player="playable character"
+PlayerCamera=""
 
 [input]
 

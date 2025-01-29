@@ -10,6 +10,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_73xjm")
+metadata/explosion_timer_seconds = 10.0
 
 [node name="Backgorund" type="TileMapLayer" parent="."]
 
