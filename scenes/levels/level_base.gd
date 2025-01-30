@@ -24,7 +24,8 @@ func _ready() -> void:
 
 func _handle_explosion(explosion_area: Area2D, radius: float) -> void:
 	_destroy_goal_on_explosion(explosion_area)
-	_remove_tiles_in_radius(explosion_area.global_position, radius)
+	# Divided by 3 because we scale everything up by 3 FIXME
+	_remove_tiles_in_radius(explosion_area.global_position / 3, radius)
 
 func _is_goal_within_explosion_range(explosion_area: Area2D) -> bool:
 	var areas_inside_explosion_radius = explosion_area.get_overlapping_areas()
@@ -53,7 +54,8 @@ func _remove_tiles_in_radius(explosion_center: Vector2, radius: float) -> void:
 			
 func _spawn_fragments(spawn_position: Vector2):
 	var fragments: FragmentsParticle = fragments_particle_scene.instantiate()
-	fragments.global_position = spawn_position
+#	Now it needs to be at the new position, so times 3 (because of the scale bs)
+	fragments.global_position = spawn_position * 3
 	get_tree().root.add_child(fragments)
 	
 func _respawn_player() -> void:

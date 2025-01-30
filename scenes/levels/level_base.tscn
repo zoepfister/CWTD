@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsvhsh0acjfbt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_base.gd" id="1_73xjm"]
-[ext_resource type="TileSet" path="res://assets/tileset/destructible_tile_set.tres" id="2_f58d6"]
-[ext_resource type="TileSet" path="res://assets/tileset/indestructible_tile_set.tres" id="2_qrtwk"]
+[ext_resource type="TileSet" uid="uid://88eq2quqv7in" path="res://assets/tileset/destructible_tile_set.tres" id="2_f58d6"]
+[ext_resource type="TileSet" uid="uid://d014oif7ax5ky" path="res://assets/tileset/indestructible_tile_set.tres" id="2_qrtwk"]
 [ext_resource type="PackedScene" uid="uid://cflggj0rcs1kh" path="res://scenes/goal/goal.tscn" id="2_s28f6"]
 [ext_resource type="PackedScene" uid="uid://d12fqlmvljen4" path="res://scenes/respawn_point/respawn.tscn" id="3_hkmnc"]
 [ext_resource type="PackedScene" uid="uid://doitnynjgnkvn" path="res://scenes/death_zone/death_zone.tscn" id="5_hjqxu"]

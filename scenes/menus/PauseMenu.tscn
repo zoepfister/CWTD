@@ -25,6 +25,7 @@ size_flags_vertical = 3
 script = ExtResource("1_hnotq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 649.0
 color = Color(0.757116, 0.565431, 0.390972, 1)
@@ -67,6 +68,7 @@ texture_pressed = ExtResource("8_ngary")
 texture_hover = ExtResource("9_nr6rp")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 39.0
 offset_right = 172.0
