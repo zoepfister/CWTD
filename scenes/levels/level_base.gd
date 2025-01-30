@@ -40,6 +40,7 @@ func _destroy_goal_on_explosion(explosion_area: Area2D) -> void:
 
 func _remove_tiles_in_radius(explosion_center: Vector2, radius: float) -> void:
 	var used_cells: Array[Vector2i] = destructible_layer.get_used_cells()
+	radius*=3
 	var tile_size = destructible_layer.tile_set.tile_size
 	var start_cell = destructible_layer.local_to_map(explosion_center - Vector2(radius, radius))
 	var end_cell = destructible_layer.local_to_map(explosion_center + Vector2(radius, radius)) 

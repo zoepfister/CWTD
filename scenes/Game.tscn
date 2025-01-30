@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cr4137xbkxflx" path="res://scenes/player/player.tscn" id="1_1iurf"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_4hqui"]
 [ext_resource type="PackedScene" uid="uid://cajkjr751ij63" path="res://scenes/menus/PauseMenu.tscn" id="1_q1lt5"]
-[ext_resource type="PackedScene" uid="uid://ejvjvapn047w" path="res://scenes/levels/level_03/level_03.tscn" id="4_ulimy"]
+[ext_resource type="PackedScene" uid="uid://drc4dxf2e6gra" path="res://scenes/levels/level_05/level_05.tscn" id="4_fm5a1"]
 
 [node name="Game" type="Node2D"]
 scale = Vector2(3, 3)
@@ -20,4 +20,4 @@ visible = false
 offset_right = -1152.0
 offset_bottom = -648.0
 
-[node name="Level2" parent="." instance=ExtResource("4_ulimy")]
+[node name="Level2" parent="." instance=ExtResource("4_fm5a1")]

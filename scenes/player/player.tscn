@@ -46,21 +46,19 @@ shape = SubResource("CapsuleShape2D_yrkk1")
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["PlayerCamera"]]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_horizontal_offset = 1.0
-drag_vertical_offset = -0.67
-drag_left_margin = 0.43
-drag_bottom_margin = 0.41
+drag_horizontal_offset = -1.0
 
 [node name="ExplodeTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="ExplosionArea" type="Area2D" parent="."]
-scale = Vector2(1.985, 1.865)
+scale = Vector2(2.985, 2.805)
 collision_layer = 32
 collision_mask = 22
 
 [node name="ExplosionCollisionShape" type="CollisionShape2D" parent="ExplosionArea"]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_tf44m")
 debug_color = Color(0.850346, 0.363739, 0.221727, 0.42)
 

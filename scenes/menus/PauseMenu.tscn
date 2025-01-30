@@ -86,10 +86,10 @@ drag_and_drop_selection_enabled = false
 [node name="SoundManager" parent="." instance=ExtResource("4_dkog8")]
 
 [node name="VolumeControls" parent="." instance=ExtResource("5_cbcjy")]
-offset_left = 296.0
-offset_top = 236.0
-offset_right = 336.0
-offset_bottom = 276.0
+offset_left = 496.0
+offset_top = 293.0
+offset_right = 536.0
+offset_bottom = 333.0
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

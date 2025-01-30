@@ -16,6 +16,10 @@ extends Node
 @onready var click_fastest_player: AudioStreamPlayer = $lit_click_fastest
 @onready var fuse_sound = $Fuse
 
+var timer_faster: Timer
+var timer_fastest: Timer
+var timer_end: Timer
+
 @export var original_background_track: AudioStreamPlayer
 
 func _init() -> void:
@@ -39,7 +43,7 @@ func unmute_player(player: AudioStreamPlayer):
 	player.volume_db = -5
 
 func _on_timer_faster_timeout() -> void:
-	mute_player(click_slow_player)
+	mute_player(clic k_slow_player)
 	unmute_player(click_faster_player)
 	
 func _on_timer_fastest_timeout() -> void:
@@ -52,6 +56,9 @@ func stop_all_players():
 	click_faster_player.stop()
 	click_fastest_player.stop()
 	fuse_sound.stop()
+	timer_end.stop()
+	timer_faster.stop()
+	timer_fastest.stop()
 
 func play_all_players():
 	background_audio_player.play()
@@ -77,14 +84,15 @@ func create_timer(wait_time: float, timeout_connector: Callable) -> Timer:
 	timer.connect("timeout", timeout_connector)
 	return timer;
 
+
 func play(duration_seconds: float = 5) -> void:
 	setup_audio_players()
-	var timer_faster: Timer = create_timer(duration_seconds * percentage_slow_speed, _on_timer_faster_timeout)
+	timer_faster = create_timer(duration_seconds * percentage_slow_speed, _on_timer_faster_timeout)
 	add_child(timer_faster)
-	var timer_fastest: Timer = create_timer(duration_seconds * (percentage_slow_speed + percentage_fast_speed), _on_timer_fastest_timeout)
+	timer_fastest = create_timer(duration_seconds * (percentage_slow_speed + percentage_fast_speed), _on_timer_fastest_timeout)
 	add_child(timer_fastest)
 	
-	var timer_end: Timer = create_timer(duration_seconds, _on_timer_end_timeout)
+	timer_end = create_timer(duration_seconds, _on_timer_end_timeout)
 	add_child(timer_end)
 	
 	play_all_players()

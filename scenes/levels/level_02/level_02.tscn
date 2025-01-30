@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://cmitcfirvhwqf"]
+[gd_scene load_steps=4 format=4 uid="uid://cmitcfirvhwqf"]
 
 [ext_resource type="PackedScene" uid="uid://bsvhsh0acjfbt" path="res://scenes/levels/level_base.tscn" id="1_cjwfe"]
 [ext_resource type="Script" path="res://scenes/levels/level_00/level_00.gd" id="2_0xjpr"]
+[ext_resource type="TileSet" uid="uid://3qbh24rivuit" path="res://assets/other/kenney_inputPromptsPixel16/Tilemap/input.tres" id="3_7gymf"]
 
 [node name="Level" instance=ExtResource("1_cjwfe")]
 script = ExtResource("2_0xjpr")
@@ -21,3 +22,7 @@ position = Vector2(478.667, 352)
 
 [node name="Fire" parent="." index="6"]
 position = Vector2(135.333, 145.333)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." index="7"]
+tile_map_data = PackedByteArray("AAADAAYAAQAfAAYAAAAEAAYAAQAgAAYAAAAFAAYAAQAhAAYAAAAEAAQAAQAfABMAABA=")
+tile_set = ExtResource("3_7gymf")
