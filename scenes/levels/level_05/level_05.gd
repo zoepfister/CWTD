@@ -16,3 +16,5 @@ func _respawn_player():
 	camera.drag_left_margin = 0.2
 	camera.drag_bottom_margin = 0.2
 	
+func _on_level_completed():
+	get_tree().change_scene_to_file(next_level.resource_path)

@@ -68,5 +68,4 @@ func _on_respawn_finished() -> void:
 	#self.queue_free()
 
 func _on_level_completed() -> void:
-
 	get_parent().change_level(next_level.instantiate())
