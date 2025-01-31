@@ -32,22 +32,22 @@ color = Color(0.757116, 0.565431, 0.390972, 1)
 
 [node name="PlayerSprite" parent="." instance=ExtResource("2_fxrau")]
 z_index = 1
-position = Vector2(967, 299)
-scale = Vector2(16, 16)
+position = Vector2(966, 338)
+scale = Vector2(12, 12)
 
 [node name="PlayerFakeShadow" parent="." instance=ExtResource("2_fxrau")]
 modulate = Color(0, 0, 0, 0.584314)
-position = Vector2(961, 297)
-scale = Vector2(16, 16)
+position = Vector2(960, 336)
+scale = Vector2(12, 12)
 
 [node name="Resume" type="TextureButton" parent="."]
 texture_filter = 2
 layout_mode = 0
-offset_left = 43.0
-offset_top = 302.0
-offset_right = 375.0
-offset_bottom = 429.0
-scale = Vector2(0.5, 0.5)
+offset_left = 88.0
+offset_top = 288.0
+offset_right = 867.0
+offset_bottom = 588.0
+scale = Vector2(0.41, 0.41)
 theme = ExtResource("3_uu26x")
 texture_normal = ExtResource("4_kaqxr")
 texture_pressed = ExtResource("5_uvbbs")
@@ -57,22 +57,38 @@ stretch_mode = 4
 [node name="Restart" type="TextureButton" parent="."]
 texture_filter = 2
 layout_mode = 0
-offset_left = 44.0
-offset_top = 466.0
-offset_right = 823.0
-offset_bottom = 766.0
-scale = Vector2(0.5, 0.5)
+offset_left = 89.0
+offset_top = 452.0
+offset_right = 868.0
+offset_bottom = 752.0
+scale = Vector2(0.41, 0.41)
 theme = ExtResource("3_uu26x")
 texture_normal = ExtResource("7_8pvud")
 texture_pressed = ExtResource("8_ngary")
 texture_hover = ExtResource("9_nr6rp")
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 197.0
+offset_top = 45.0
+offset_right = 376.0
+offset_bottom = 75.0
+scale = Vector2(4, 4)
+mouse_force_pass_scroll_events = false
+theme = ExtResource("3_uu26x")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Cant Wait To Die!"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 39.0
-offset_right = 172.0
-offset_bottom = 99.0
+offset_left = 200.0
+offset_top = 43.0
+offset_right = 379.0
+offset_bottom = 73.0
 scale = Vector2(4, 4)
 mouse_force_pass_scroll_events = false
 theme = ExtResource("3_uu26x")
@@ -87,9 +103,9 @@ drag_and_drop_selection_enabled = false
 
 [node name="VolumeControls" parent="." instance=ExtResource("5_cbcjy")]
 offset_left = 496.0
-offset_top = 293.0
+offset_top = 272.0
 offset_right = 536.0
-offset_bottom = 333.0
+offset_bottom = 312.0
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
