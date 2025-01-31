@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=4 uid="uid://5b1sj6a0mbf"]
+[gd_scene load_steps=5 format=4 uid="uid://5b1sj6a0mbf"]
 
 [ext_resource type="PackedScene" uid="uid://bsvhsh0acjfbt" path="res://scenes/levels/level_base.tscn" id="1_ae311"]
 [ext_resource type="TileSet" uid="uid://3qbh24rivuit" path="res://assets/other/kenney_inputPromptsPixel16/Tilemap/input.tres" id="2_5efwq"]
 [ext_resource type="Script" path="res://scenes/levels/level_00/level_00.gd" id="2_t7vea"]
+[ext_resource type="PackedScene" uid="uid://cmitcfirvhwqf" path="res://scenes/levels/level_02/level_02.tscn" id="3_rlqrq"]
 
 [node name="Level0" instance=ExtResource("1_ae311")]
 position = Vector2(0, 48)
 script = ExtResource("2_t7vea")
+next_level = ExtResource("3_rlqrq")
 metadata/explosion_timer_seconds = 2.8
 metadata/_edit_pinned_properties_ = [&"metadata/explosion_timer_seconds"]
 

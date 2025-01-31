@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://drc4dxf2e6gra"]
+[gd_scene load_steps=6 format=4 uid="uid://drc4dxf2e6gra"]
 
 [ext_resource type="PackedScene" uid="uid://bsvhsh0acjfbt" path="res://scenes/levels/level_base.tscn" id="1_4j4u0"]
 [ext_resource type="Script" path="res://scenes/levels/level_05/level_05.gd" id="2_p1s1s"]
 [ext_resource type="PackedScene" uid="uid://doitnynjgnkvn" path="res://scenes/death_zone/death_zone.tscn" id="3_0xcab"]
+[ext_resource type="PackedScene" uid="uid://c0ovevhrdql63" path="res://scenes/menus/Thanks.tscn" id="3_p32ln"]
 [ext_resource type="TileSet" uid="uid://3qbh24rivuit" path="res://assets/other/kenney_inputPromptsPixel16/Tilemap/input.tres" id="3_qndg2"]
 
 [node name="Level" instance=ExtResource("1_4j4u0")]
 script = ExtResource("2_p1s1s")
+next_level = ExtResource("3_p32ln")
 metadata/explosion_timer_seconds = 12.0
 
 [node name="IndestructibleLayer" parent="." index="1"]

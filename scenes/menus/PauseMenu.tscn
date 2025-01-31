@@ -30,24 +30,14 @@ offset_right = 1151.0
 offset_bottom = 649.0
 color = Color(0.757116, 0.565431, 0.390972, 1)
 
-[node name="PlayerSprite" parent="." instance=ExtResource("2_fxrau")]
-z_index = 1
-position = Vector2(967, 299)
-scale = Vector2(16, 16)
-
-[node name="PlayerFakeShadow" parent="." instance=ExtResource("2_fxrau")]
-modulate = Color(0, 0, 0, 0.584314)
-position = Vector2(961, 297)
-scale = Vector2(16, 16)
-
 [node name="Resume" type="TextureButton" parent="."]
 texture_filter = 2
 layout_mode = 0
-offset_left = 43.0
-offset_top = 302.0
-offset_right = 375.0
-offset_bottom = 429.0
-scale = Vector2(0.5, 0.5)
+offset_left = 125.0
+offset_top = 256.0
+offset_right = 904.0
+offset_bottom = 556.0
+scale = Vector2(0.4, 0.4)
 theme = ExtResource("3_uu26x")
 texture_normal = ExtResource("4_kaqxr")
 texture_pressed = ExtResource("5_uvbbs")
@@ -57,23 +47,52 @@ stretch_mode = 4
 [node name="Restart" type="TextureButton" parent="."]
 texture_filter = 2
 layout_mode = 0
-offset_left = 44.0
-offset_top = 466.0
-offset_right = 823.0
-offset_bottom = 766.0
-scale = Vector2(0.5, 0.5)
+offset_left = 126.0
+offset_top = 420.0
+offset_right = 905.0
+offset_bottom = 720.0
+scale = Vector2(0.4, 0.4)
 theme = ExtResource("3_uu26x")
 texture_normal = ExtResource("7_8pvud")
 texture_pressed = ExtResource("8_ngary")
 texture_hover = ExtResource("9_nr6rp")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="SoundManager" parent="." instance=ExtResource("4_dkog8")]
+
+[node name="PlayerSprite" parent="." instance=ExtResource("2_fxrau")]
+z_index = 1
+position = Vector2(1014, 338)
+scale = Vector2(12, 12)
+
+[node name="PlayerFakeShadow" parent="." instance=ExtResource("2_fxrau")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(1008, 336)
+scale = Vector2(12, 12)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 39.0
-offset_right = 172.0
-offset_bottom = 99.0
-scale = Vector2(4, 4)
+offset_left = 125.0
+offset_top = 36.0
+offset_right = 304.0
+offset_bottom = 66.0
+scale = Vector2(4.5, 4.5)
+mouse_force_pass_scroll_events = false
+theme = ExtResource("3_uu26x")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Cant Wait To Die!"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 307.0
+offset_bottom = 62.0
+scale = Vector2(4.5, 4.5)
 mouse_force_pass_scroll_events = false
 theme = ExtResource("3_uu26x")
 theme_override_font_sizes/normal_font_size = 30
@@ -83,13 +102,13 @@ scroll_active = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="SoundManager" parent="." instance=ExtResource("4_dkog8")]
-
 [node name="VolumeControls" parent="." instance=ExtResource("5_cbcjy")]
-offset_left = 496.0
-offset_top = 293.0
-offset_right = 536.0
-offset_bottom = 333.0
+offset_left = 432.0
+offset_top = 264.0
+offset_right = 788.0
+offset_bottom = 592.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(351, 204)
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

@@ -2,14 +2,13 @@ extends Control
 
 @onready var tinamy: PlayerSprite = $CanvasLayer/PlayerSprite
 @onready var tinamy_shadow: PlayerSprite = $CanvasLayer/PlayerFakeShadow
-@onready var sound_manager = $CanvasLayer/SoundManager
 
 @export var start_scene = "res://scenes/Game.tscn"
 
 func _ready() -> void:
 	tinamy.play_animation("run")
 	tinamy_shadow.play_animation("run")
-	sound_manager.start_background_music()
+	SoundManager.start_background_music()
 
 func _on_pause_pressed() -> void:
 	get_tree().paused = true

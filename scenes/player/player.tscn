@@ -44,9 +44,9 @@ position = Vector2(1, -4)
 shape = SubResource("CapsuleShape2D_yrkk1")
 
 [node name="PlayerCamera" type="Camera2D" parent="." groups=["PlayerCamera"]]
+limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_horizontal_offset = -1.0
 
 [node name="ExplodeTimer" type="Timer" parent="."]
 wait_time = 5.0

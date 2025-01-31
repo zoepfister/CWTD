@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsvhsh0acjfbt"]
+[gd_scene load_steps=9 format=3 uid="uid://bsvhsh0acjfbt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_base.gd" id="1_73xjm"]
+[ext_resource type="PackedScene" uid="uid://ejvjvapn047w" path="res://scenes/levels/level_03/level_03.tscn" id="2_4c4ei"]
 [ext_resource type="TileSet" uid="uid://88eq2quqv7in" path="res://assets/tileset/destructible_tile_set.tres" id="2_f58d6"]
 [ext_resource type="TileSet" uid="uid://d014oif7ax5ky" path="res://assets/tileset/indestructible_tile_set.tres" id="2_qrtwk"]
 [ext_resource type="PackedScene" uid="uid://cflggj0rcs1kh" path="res://scenes/goal/goal.tscn" id="2_s28f6"]
@@ -10,6 +11,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_73xjm")
+next_level = ExtResource("2_4c4ei")
 metadata/explosion_timer_seconds = 10.0
 
 [node name="Backgorund" type="TileMapLayer" parent="."]

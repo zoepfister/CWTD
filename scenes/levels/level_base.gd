@@ -6,7 +6,7 @@ extends Node2D
 @onready var destructible_layer: TileMapLayer = $DestructibleLayer
 @onready var goal: Goal = $Goal
 @onready var respawn_point: Respawn = $Respawn
-@onready var next_level: PackedScene = preload("res://scenes/levels/level_01/level_01.tscn")
+@export var next_level: PackedScene = preload("res://scenes/levels/level_01/level_01.tscn")
 
 #@export var next_level_resource = "res://scenes/levels/level_00/level_00.tscn"
 
@@ -68,5 +68,4 @@ func _on_respawn_finished() -> void:
 	#self.queue_free()
 
 func _on_level_completed() -> void:
-
 	get_parent().change_level(next_level.instantiate())

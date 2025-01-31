@@ -15,9 +15,6 @@ script = ExtResource("1_nibv3")
 [node name="Explosion_sound_effect" parent="." instance=ExtResource("2_8ihct")]
 
 [node name="Lit_background_music" parent="." instance=ExtResource("3_rjqvh")]
-percentage_slow_speed = null
-percentage_fast_speed = null
-percentage_fastest_speed = null
 
 [node name="Jump" parent="." instance=ExtResource("5_otoc8")]
 
