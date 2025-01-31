@@ -43,7 +43,7 @@ func unmute_player(player: AudioStreamPlayer):
 	player.volume_db = -5
 
 func _on_timer_faster_timeout() -> void:
-	mute_player(clic k_slow_player)
+	mute_player(click_slow_player)
 	unmute_player(click_faster_player)
 	
 func _on_timer_fastest_timeout() -> void:

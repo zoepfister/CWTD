@@ -6,14 +6,14 @@ extends Node2D
 @onready var destructible_layer: TileMapLayer = $DestructibleLayer
 @onready var goal: Goal = $Goal
 @onready var respawn_point: Respawn = $Respawn
-@onready var next_level: PackedScene = preload("res://scenes/levels/level_01/level_01.tscn")
+@export var next_level: PackedScene = preload("res://scenes/levels/level_00/level_00.tscn")
 
 #@export var next_level_resource = "res://scenes/levels/level_00/level_00.tscn"
 
 var player_initial_position: Vector2
 
 func _ready() -> void:
-	player_initial_position = respawn_point.global_position + Vector2(15, 0)
+	player_initial_position = respawn_point.global_position + Vector2(45, 0)
 	player.global_position = player_initial_position
 	player.exploded.connect(_handle_explosion)
 	player.ready_to_respawn.connect(_respawn_player)
