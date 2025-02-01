@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0ovevhrdql63"]
+
+[ext_resource type="PackedScene" uid="uid://bjri0wta252am" path="res://scenes/player/player_sprite.tscn" id="1_76acd"]
+[ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_ir2qr"]
+[ext_resource type="Theme" uid="uid://coxyygmaexqmr" path="res://scenes/menus/MainMenu.tres" id="4_iiaub"]
+[ext_resource type="Texture2D" uid="uid://p3wy4bpjunxx" path="res://assets/menus/buttons/UI_Button_Exit/Normal Merged.PNG" id="5_erg6n"]
+[ext_resource type="Texture2D" uid="uid://bphoyh1iuyhel" path="res://assets/menus/buttons/UI_Button_Exit/Pressed Merged.PNG" id="6_v4lex"]
+[ext_resource type="Texture2D" uid="uid://dsaun7y5fl7lm" path="res://assets/menus/buttons/UI_Button_Exit/Hover Merged.PNG" id="7_7la3v"]
+
+[node name="Thanks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ir2qr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1153.0
+offset_bottom = 652.0
+color = Color(0.757116, 0.565431, 0.390972, 1)
+
+[node name="PlayerSprite" parent="CanvasLayer" instance=ExtResource("1_76acd")]
+z_index = 1
+position = Vector2(566, 298)
+scale = Vector2(10, 10)
+
+[node name="PlayerFakeShadow" parent="CanvasLayer" instance=ExtResource("1_76acd")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(560, 296)
+scale = Vector2(10, 10)
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer"]
+texture_filter = 2
+offset_left = 408.0
+offset_top = 488.0
+offset_right = 1187.0
+offset_bottom = 788.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("4_iiaub")
+texture_normal = ExtResource("5_erg6n")
+texture_pressed = ExtResource("6_v4lex")
+texture_hover = ExtResource("7_7la3v")
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 152.0
+offset_top = 80.0
+offset_right = 985.0
+offset_bottom = 154.0
+theme = ExtResource("4_iiaub")
+theme_override_font_sizes/normal_font_size = 64
+text = "Thank you for playing our little game!"
+
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]

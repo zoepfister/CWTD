@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://cajkjr751ij63"]
+
+[ext_resource type="Script" path="res://scenes/menus/pause_menu.gd" id="1_hnotq"]
+[ext_resource type="PackedScene" uid="uid://bjri0wta252am" path="res://scenes/player/player_sprite.tscn" id="2_fxrau"]
+[ext_resource type="Theme" uid="uid://coxyygmaexqmr" path="res://scenes/menus/MainMenu.tres" id="3_uu26x"]
+[ext_resource type="PackedScene" uid="uid://cswvdxek4jyvj" path="res://sounds/SoundManager.tscn" id="4_dkog8"]
+[ext_resource type="Texture2D" uid="uid://ds5gd71dptt12" path="res://assets/menus/buttons/UI_Button_Resume/Normal Merged.PNG" id="4_kaqxr"]
+[ext_resource type="PackedScene" uid="uid://cnpxgr2udl24f" path="res://scenes/menus/volume_controls.tscn" id="5_cbcjy"]
+[ext_resource type="Texture2D" uid="uid://cphrn78uv6l6i" path="res://assets/menus/buttons/UI_Button_Resume/Pressed Merged.PNG" id="5_uvbbs"]
+[ext_resource type="Texture2D" uid="uid://vqrnx3sddn4e" path="res://assets/menus/buttons/UI_Button_Resume/Hover Merged.PNG" id="6_w7d0v"]
+[ext_resource type="Texture2D" uid="uid://geth21dskjyk" path="res://assets/menus/buttons/UI_Button_Restart/Normal Merged.PNG" id="7_8pvud"]
+[ext_resource type="Texture2D" uid="uid://cqfxbcfvcgmv8" path="res://assets/menus/buttons/UI_Button_Restart/Pressed Merged.PNG" id="8_ngary"]
+[ext_resource type="Texture2D" uid="uid://bf4iyb1f5scrg" path="res://assets/menus/buttons/UI_Button_Restart/Hover Merged.PNG" id="9_nr6rp"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hnotq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0.757116, 0.565431, 0.390972, 1)
+
+[node name="PlayerSprite" parent="." instance=ExtResource("2_fxrau")]
+z_index = 1
+position = Vector2(966, 338)
+scale = Vector2(12, 12)
+
+[node name="PlayerFakeShadow" parent="." instance=ExtResource("2_fxrau")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(960, 336)
+scale = Vector2(12, 12)
+
+[node name="Resume" type="TextureButton" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 88.0
+offset_top = 288.0
+offset_right = 867.0
+offset_bottom = 588.0
+scale = Vector2(0.41, 0.41)
+theme = ExtResource("3_uu26x")
+texture_normal = ExtResource("4_kaqxr")
+texture_pressed = ExtResource("5_uvbbs")
+texture_hover = ExtResource("6_w7d0v")
+stretch_mode = 4
+
+[node name="Restart" type="TextureButton" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 89.0
+offset_top = 452.0
+offset_right = 868.0
+offset_bottom = 752.0
+scale = Vector2(0.41, 0.41)
+theme = ExtResource("3_uu26x")
+texture_normal = ExtResource("7_8pvud")
+texture_pressed = ExtResource("8_ngary")
+texture_hover = ExtResource("9_nr6rp")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 197.0
+offset_top = 45.0
+offset_right = 376.0
+offset_bottom = 75.0
+scale = Vector2(4, 4)
+mouse_force_pass_scroll_events = false
+theme = ExtResource("3_uu26x")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Cant Wait To Die!"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 43.0
+offset_right = 379.0
+offset_bottom = 73.0
+scale = Vector2(4, 4)
+mouse_force_pass_scroll_events = false
+theme = ExtResource("3_uu26x")
+theme_override_font_sizes/normal_font_size = 30
+text = "Cant Wait To Die!"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="SoundManager" parent="." instance=ExtResource("4_dkog8")]
+
+[node name="VolumeControls" parent="." instance=ExtResource("5_cbcjy")]
+offset_left = 496.0
+offset_top = 272.0
+offset_right = 536.0
+offset_bottom = 312.0
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
