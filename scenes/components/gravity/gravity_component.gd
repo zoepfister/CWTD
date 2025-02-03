@@ -2,7 +2,7 @@ class_name GravityComponent
 extends Node
 
 @export_subgroup("Settings")
-@export var gravity: float = 3000.0
+@export var gravity: float = 1000.0
 
 var is_falling: bool = false
 var is_gravity_enabled: bool = true

@@ -1,7 +1,8 @@
 extends Control
 
-@onready var tinamy: PlayerSprite = $CanvasLayer/PlayerSprite
-@onready var tinamy_shadow: PlayerSprite = $CanvasLayer/PlayerFakeShadow
+@export_subgroup("Nodes")
+@export var tinamy: PlayerSprite
+@export var tinamy_shadow: PlayerSprite
 
 @export var start_scene = "res://scenes/Game.tscn"
 
