@@ -28,7 +28,8 @@ func handle_run_animation(direction: float) -> void:
 	fuse.handle_move_animation(direction, fuse_lit_animation)
 	legs.handle_move_animation(direction, "run")
 	
-func start_lit_timer() -> void:
+func start_lit_timer(duration: float = 5.0) -> void:
+	lit_timer.wait_time = duration / 4.0	# Chnage lit fuse sprites evenly until player explodes
 	lit_timer.start()
 	
 func handle_explode_animation(explosion_position: Vector2) -> void:

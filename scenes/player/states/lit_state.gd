@@ -9,7 +9,7 @@ func enter() -> void:
 	direction = context.input_component.input_horizontal
 	if direction == 0:
 		direction = sign(context.velocity.x) if context.velocity.x != 0 else 1
-	context.sprite_animation.start_lit_timer()
+	context.sprite_animation.start_lit_timer(context.explode_timer.wait_time)	# use different timer as set by the level
 	context.explode_timer.start()
 	SoundManager.start_lit_music_background(context.explode_timer.get_wait_time())
 	
@@ -19,9 +19,6 @@ static func new_state(ctx: Player) -> PlayerState:
 	return new_state
 
 func process(delta: float) -> void:
-	_handle_lit_state()	
-	
-func _handle_lit_state():
 	if context.is_on_wall():
 		direction *= -1.0
 		context.velocity.x = 0
