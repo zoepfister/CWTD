@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1mhl2s4ja273"]
+[gd_scene load_steps=13 format=3 uid="uid://d1mhl2s4ja273"]
 
 [ext_resource type="Script" path="res://scenes/fire/fire.gd" id="1_ij3ie"]
 [ext_resource type="Texture2D" uid="uid://kfvx0ntxs6td" path="res://assets/fire/fire1.png" id="2_1e1g4"]
@@ -41,6 +41,18 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_4ayk1"]
+offsets = PackedFloat32Array(0.0285714, 0.314286, 0.75, 0.921429)
+colors = PackedColorArray(0.887615, 0.429453, 0, 1, 0.763284, 0.627786, 0.163308, 1, 1, 1, 0.403922, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i2d4o"]
+gradient = SubResource("Gradient_4ayk1")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.9)
+
 [node name="Fire" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_ij3ie")
@@ -50,5 +62,10 @@ shape = SubResource("CircleShape2D_nthlk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 sprite_frames = SubResource("SpriteFrames_ltqix")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.0
+blend_mode = 2
+texture = SubResource("GradientTexture2D_i2d4o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
