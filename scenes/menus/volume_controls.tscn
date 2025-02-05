@@ -1,37 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnpxgr2udl24f"]
+[gd_scene load_steps=5 format=3 uid="uid://cnpxgr2udl24f"]
 
 [ext_resource type="Script" path="res://scenes/menus/volume_changes.gd" id="1_qb5yh"]
 [ext_resource type="Texture2D" uid="uid://cyvckph6hdi3p" path="res://assets/menus/volume_sliders/speaker.png" id="2_0h25t"]
 [ext_resource type="Texture2D" uid="uid://dederi6ttrn7g" path="res://assets/menus/volume_sliders/notes.png" id="3_4kohc"]
 [ext_resource type="Texture2D" uid="uid://7epor04k8ukt" path="res://assets/menus/volume_sliders/explosion.png" id="4_dfjcp"]
-[ext_resource type="PackedScene" uid="uid://cswvdxek4jyvj" path="res://sounds/SoundManager.tscn" id="5_brlhr"]
 
 [node name="VolumeControls" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 350.0
-offset_bottom = 338.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -222.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Master" type="VSlider" parent="."]
 texture_filter = 1
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_left = 5.0
-offset_top = 6.0
-offset_right = 21.0
-offset_bottom = 70.0
-scale = Vector2(4, 4)
+offset_top = 5.0
+offset_right = 25.0
+offset_bottom = 69.0
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_qb5yh")
 
 [node name="Music" type="VSlider" parent="."]
 texture_filter = 1
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
-offset_left = 134.0
-offset_top = 8.0
-offset_right = 150.0
-offset_bottom = 72.0
-scale = Vector2(4, 4)
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 60.0
+offset_bottom = 69.0
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_qb5yh")
@@ -39,51 +42,49 @@ audio_bus_name = "Background-Music"
 
 [node name="Effects" type="VSlider" parent="."]
 texture_filter = 1
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
-offset_left = 263.0
-offset_top = 7.0
-offset_right = 279.0
-offset_bottom = 71.0
-scale = Vector2(4, 4)
+offset_left = 75.0
+offset_top = 5.0
+offset_right = 95.0
+offset_bottom = 69.0
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_qb5yh")
 audio_bus_name = "Effects"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 265.0
-offset_right = 23.0
-offset_bottom = 280.0
-scale = Vector2(4, 4)
+offset_left = 5.0
+offset_top = 75.0
+offset_right = 25.0
+offset_bottom = 95.0
 texture = ExtResource("2_0h25t")
 expand_mode = 3
 stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
-offset_left = 136.0
-offset_top = 265.0
-offset_right = 151.0
-offset_bottom = 280.0
-scale = Vector2(4, 4)
+offset_left = 40.0
+offset_top = 75.0
+offset_right = 60.0
+offset_bottom = 95.0
 texture = ExtResource("3_4kohc")
 expand_mode = 3
 stretch_mode = 4
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
-offset_left = 264.0
-offset_top = 266.0
-offset_right = 279.0
-offset_bottom = 281.0
-scale = Vector2(4, 4)
+offset_left = 75.0
+offset_top = 75.0
+offset_right = 95.0
+offset_bottom = 95.0
 texture = ExtResource("4_dfjcp")
 expand_mode = 3
 stretch_mode = 4
-
-[node name="SoundManager" parent="." instance=ExtResource("5_brlhr")]
 
 [connection signal="value_changed" from="Master" to="Master" method="_on_value_changed"]
 [connection signal="value_changed" from="Music" to="Music" method="_on_value_changed"]

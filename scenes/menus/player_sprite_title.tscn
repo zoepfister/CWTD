@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://riyeur63heln"]
+
+[ext_resource type="PackedScene" uid="uid://bjri0wta252am" path="res://scenes/player/player_sprite.tscn" id="1_ptb2j"]
+
+[node name="Player" type="BoxContainer"]
+offset_left = -733.0
+offset_top = -283.0
+offset_right = -693.0
+offset_bottom = -243.0
+
+[node name="PlayerSprite" parent="." instance=ExtResource("1_ptb2j")]
+z_index = 1
+position = Vector2(999, 378)
+scale = Vector2(4, 4)
+
+[node name="PlayerFakeShadow" parent="." instance=ExtResource("1_ptb2j")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(993, 376)
+scale = Vector2(4, 4)

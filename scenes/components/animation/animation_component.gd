@@ -9,7 +9,6 @@ extends Node
 func _handle_horizontal_flip(direction: float) -> void:
 	if direction == 0:
 		return
-	
 	sprite.flip_h = false if direction > 0 else true
 	
 func handle_move_animation(move_direction: float, animation_name: String) -> void :

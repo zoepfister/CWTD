@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmkq2rsj2okqd"]
+
+[ext_resource type="Theme" uid="uid://coxyygmaexqmr" path="res://scenes/menus/MainMenu.tres" id="1_txw75"]
+
+[node name="Title" type="BoxContainer"]
+custom_minimum_size = Vector2(320, 20)
+offset_right = 319.0
+offset_bottom = 60.0
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(320, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_force_pass_scroll_events = false
+theme = ExtResource("1_txw75")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Cant Wait To Die![/center]"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RichTextLabel2"]
+custom_minimum_size = Vector2(320, 20)
+layout_mode = 2
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 321.0
+offset_bottom = 32.0
+mouse_force_pass_scroll_events = false
+theme = ExtResource("1_txw75")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Cant Wait To Die![/center]"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false

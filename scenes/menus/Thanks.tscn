@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bphoyh1iuyhel" path="res://assets/menus/buttons/UI_Button_Exit/Pressed Merged.PNG" id="6_v4lex"]
 [ext_resource type="Texture2D" uid="uid://dsaun7y5fl7lm" path="res://assets/menus/buttons/UI_Button_Exit/Hover Merged.PNG" id="7_7la3v"]
 
-[node name="Thanks" type="Control"]
+[node name="Thanks" type="Control" node_paths=PackedStringArray("tinamy", "tinamy_shadow")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,44 +15,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ir2qr")
+tinamy = NodePath("PlayerSprite")
+tinamy_shadow = NodePath("PlayerFakeShadow")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1153.0
-offset_bottom = 652.0
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.757116, 0.565431, 0.390972, 1)
 
-[node name="PlayerSprite" parent="CanvasLayer" instance=ExtResource("1_76acd")]
-z_index = 1
-position = Vector2(566, 298)
-scale = Vector2(10, 10)
-
-[node name="PlayerFakeShadow" parent="CanvasLayer" instance=ExtResource("1_76acd")]
-modulate = Color(0, 0, 0, 0.584314)
-position = Vector2(560, 296)
-scale = Vector2(10, 10)
-
-[node name="Exit" type="TextureButton" parent="CanvasLayer"]
+[node name="Exit" type="TextureButton" parent="."]
 texture_filter = 2
-offset_left = 408.0
-offset_top = 488.0
-offset_right = 1187.0
-offset_bottom = 788.0
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -89.0
+offset_right = 122.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.4, 0.4)
 theme = ExtResource("4_iiaub")
 texture_normal = ExtResource("5_erg6n")
 texture_pressed = ExtResource("6_v4lex")
 texture_hover = ExtResource("7_7la3v")
+ignore_texture_size = true
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 152.0
-offset_top = 80.0
-offset_right = 985.0
-offset_bottom = 154.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 321.0
+offset_bottom = 32.0
 theme = ExtResource("4_iiaub")
-theme_override_font_sizes/normal_font_size = 64
-text = "Thank you for playing our little game!"
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]Thank you for playing our little game![/center]"
+scroll_active = false
 
-[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_exit_pressed"]
+[node name="PlayerSprite" parent="." instance=ExtResource("1_76acd")]
+z_index = 1
+position = Vector2(285, 95)
+scale = Vector2(4, 4)
+
+[node name="PlayerFakeShadow" parent="." instance=ExtResource("1_76acd")]
+modulate = Color(0, 0, 0, 0.584314)
+position = Vector2(280, 90)
+scale = Vector2(4, 4)
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -2,10 +2,10 @@ class_name MovementComponent
 extends Node
 
 @export_subgroup("Settings")
-@export var ground_accel: float = 18.0
-@export var ground_decel: float = 24.0
-@export var air_accel: float = 30.0
-@export var air_decel: float = 9.0
+@export var ground_accel: float = 6.0
+@export var ground_decel: float = 8.0
+@export var air_accel: float = 10.0
+@export var air_decel: float = 3.0
 
 func handle_horizontal_movement(body: CharacterBody2D, direction: float, speed: float) -> void:
 	var velocity_change_speed: float = 0.0

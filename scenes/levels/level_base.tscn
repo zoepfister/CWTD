@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsvhsh0acjfbt"]
+[gd_scene load_steps=10 format=3 uid="uid://bsvhsh0acjfbt"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_base.gd" id="1_73xjm"]
 [ext_resource type="TileSet" uid="uid://88eq2quqv7in" path="res://assets/tileset/destructible_tile_set.tres" id="2_f58d6"]
 [ext_resource type="TileSet" uid="uid://d014oif7ax5ky" path="res://assets/tileset/indestructible_tile_set.tres" id="2_qrtwk"]
 [ext_resource type="PackedScene" uid="uid://cflggj0rcs1kh" path="res://scenes/goal/goal.tscn" id="2_s28f6"]
 [ext_resource type="PackedScene" uid="uid://c0ovevhrdql63" path="res://scenes/menus/Thanks.tscn" id="2_u0kc5"]
+[ext_resource type="TileSet" uid="uid://o1mvsupyg1y" path="res://assets/tileset/background.tres" id="3_geg5g"]
 [ext_resource type="PackedScene" uid="uid://d12fqlmvljen4" path="res://scenes/respawn_point/respawn.tscn" id="3_hkmnc"]
 [ext_resource type="PackedScene" uid="uid://doitnynjgnkvn" path="res://scenes/death_zone/death_zone.tscn" id="5_hjqxu"]
 [ext_resource type="PackedScene" uid="uid://d1mhl2s4ja273" path="res://scenes/fire/fire.tscn" id="6_7abki"]
@@ -15,6 +16,10 @@ next_level = ExtResource("2_u0kc5")
 metadata/explosion_timer_seconds = 10.0
 
 [node name="Backgorund" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_geg5g")
+
+[node name="Decoration" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_geg5g")
 
 [node name="IndestructibleLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_qrtwk")

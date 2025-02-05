@@ -8,12 +8,10 @@ extends Node2D
 @onready var respawn_point: Respawn = $Respawn
 @export var next_level: PackedScene = preload("res://scenes/levels/level_00/level_00.tscn")
 
-#@export var next_level_resource = "res://scenes/levels/level_00/level_00.tscn"
-
 var player_initial_position: Vector2
 
 func _ready() -> void:
-	player_initial_position = respawn_point.global_position + Vector2(45, 0)
+	player_initial_position = respawn_point.global_position + Vector2(15, 0)
 	player.global_position = player_initial_position
 	player.exploded.connect(_handle_explosion)
 	player.ready_to_respawn.connect(_respawn_player)
@@ -24,8 +22,7 @@ func _ready() -> void:
 
 func _handle_explosion(explosion_area: Area2D, radius: float) -> void:
 	_destroy_goal_on_explosion(explosion_area)
-	# Divided by 3 because we scale everything up by 3 FIXME
-	_remove_tiles_in_radius(explosion_area.global_position / 3, radius)
+	_remove_tiles_in_radius(explosion_area.global_position, radius)
 
 func _is_goal_within_explosion_range(explosion_area: Area2D) -> bool:
 	var areas_inside_explosion_radius = explosion_area.get_overlapping_areas()
@@ -40,7 +37,6 @@ func _destroy_goal_on_explosion(explosion_area: Area2D) -> void:
 
 func _remove_tiles_in_radius(explosion_center: Vector2, radius: float) -> void:
 	var used_cells: Array[Vector2i] = destructible_layer.get_used_cells()
-	radius*=3
 	var tile_size = destructible_layer.tile_set.tile_size
 	var start_cell = destructible_layer.local_to_map(explosion_center - Vector2(radius, radius))
 	var end_cell = destructible_layer.local_to_map(explosion_center + Vector2(radius, radius)) 
@@ -55,8 +51,7 @@ func _remove_tiles_in_radius(explosion_center: Vector2, radius: float) -> void:
 			
 func _spawn_fragments(spawn_position: Vector2):
 	var fragments: FragmentsParticle = fragments_particle_scene.instantiate()
-#	Now it needs to be at the new position, so times 3 (because of the scale bs)
-	fragments.global_position = spawn_position * 3
+	fragments.global_position = spawn_position
 	get_tree().root.add_child(fragments)
 	
 func _respawn_player() -> void:
@@ -65,7 +60,6 @@ func _respawn_player() -> void:
 	
 func _on_respawn_finished() -> void:
 	player.on_repsawn()
-	#self.queue_free()
 
 func _on_level_completed() -> void:
 	get_parent().change_level(next_level.instantiate())
