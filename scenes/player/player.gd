@@ -6,7 +6,6 @@ extends CharacterBody2D
 @export var run_speed: float = 250.0
 @export var jump_velocity: float = -350.0
 var run_velocity_change_rate: float = 5.0 
-var direction: float = 1.0
 
 @export_subgroup("Nodes")
 @export var camera: Camera2D
@@ -51,5 +50,6 @@ func on_repsawn():
 func _on_jump_sucess_signal() -> void:
 	SoundManager.play_jump_sound()
 	
+## Helper method used to prevent lit timer reset when touching a flame multiple times
 func can_be_lit() -> bool:
 	return current_state is PlayerIdleState || current_state is MoveState
